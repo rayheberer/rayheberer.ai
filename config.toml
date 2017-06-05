@@ -1,6 +1,6 @@
-baseurl = "https://example.com/"
+baseurl = "https://rayheberer.netlify.com"
 languageCode = "en-US"
-title = "Chris Turner"
+title = "Ray Heberer"
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
@@ -11,8 +11,8 @@ theme = "hugo-sustain"
   post = "/:year/:month/:day/:slug"
 
 [params]
-  avatar = "profile.png"
-  author = "Chris Turner"
+  avatar = "/static/img/profile.png"
+  author = "Ray Heberer"
   description = "Describe your website"
 
   # Custom assets can be linked with their paths relative to static/
@@ -20,11 +20,8 @@ theme = "hugo-sustain"
   custom_js  = []
 
 [params.social]
-  Github        = "username"
-  Email         = "email@example.com"
-  Twitter       = "username"
-  LinkedIn      = "username"
-  Stackoverflow = "username"
+  Github        = "rayheberer"
+  Email         = "ray.heberer@gmail.com"
 
 ## Main Menu
 [[menu.main]]
