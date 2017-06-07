@@ -43,9 +43,9 @@ Before moving further, I would like to quickly acknowledge [Rustum Choksi](http:
 Now, I'd like to demonstrate a typical use of the imgnoise() function - the star player of the imgnoise package.
 
 ```{r imgnoise}
+devtools::install_github("rayheberer/imgnoise")
 library(imgnoise)
 profile_salt_pepper = imgnoise(profile, "salt_and_pepper", noise_density = 0.1)
-writePNG(profile_salt_pepper, "~/R/publicblog/img/imgnoise/profile_salt_pepper.png")
 ```
 ![](/img/imgnoise/profile_salt_pepper.png)
 
@@ -55,9 +55,6 @@ Well, while I'm at it I might as well show what all of the different types of no
 profile_uniform = imgnoise(profile, "uniform")
 profile_gaussian = imgnoise(profile, "gaussian", variance = 0.01)
 profile_speckle = imgnoise(profile, "speckle")
-writePNG(profile_uniform, "~/R/publicblog/img/imgnoise/profile_uniform.png")
-writePNG(profile_gaussian, "~/R/publicblog/img/imgnoise/profile_gaussian.png")
-writePNG(profile_speckle, "~/R/publicblog/img/imgnoise/profile_speckle.png")
 ```
 ![](/img/imgnoise/profile_uniform.png)
 ![](/img/imgnoise/profile_gaussian.png)
