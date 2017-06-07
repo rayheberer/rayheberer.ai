@@ -4,7 +4,6 @@
       <a class="navbar-brand" href="{{ .Site.BaseURL }}"><i class="fa fa-home"></i></a>
     </div>
     <div id="navbar">
-      {{ partial "social" . }}
       <ul class="nav navbar-nav navbar-right">
       {{ if .Site.Menus.main }}
         {{ range sort .Site.Menus.main }}
