@@ -5,7 +5,7 @@
       <section id="about">
         <div class="container">
         <div class="avatar">
-          <img class="img-circle" src="{{ .Site.BaseURL }}/img/profile.png" alt="profile image">
+          <img id="profile" class="img-circle" src="{{ .Site.BaseURL }}/img/profile.png" alt="profile image">
         </div>
         <h3>Hi, I'm <strong>{{ .Site.Params.author }}</strong>, a Data Scientist. </h3>
         <h3>I believe that all data has <strong>stories</strong> to tell,</h3>
@@ -24,4 +24,11 @@
     </div>
     {{ partial "footer" . }}
   </body>
+  
+  <style>
+    #profile {
+      height: 250px;
+    }
+  </style>
+  
 </html>
