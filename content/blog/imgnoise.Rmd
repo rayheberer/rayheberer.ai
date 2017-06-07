@@ -1,5 +1,7 @@
 ---
-title: "Applying Noise to Images with "imgnoise""
+title: "Applying Noise to Images with imgnoise"
+linktitle: "Applying Noise to Images with imgnoise"
+highlight: true
 author: "Ray Heberer"
 date: "June 7, 2017"
 output: html_document

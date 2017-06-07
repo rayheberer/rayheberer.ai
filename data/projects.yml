@@ -1,4 +1,5 @@
 name: Projects
-source: [imgnoise](https://github.com/rayheberer/imgnoise)
+source:
   - icon: fa fa-github
     description: An R package that generates random noise on images and arrays.
+    name: imgnoise
