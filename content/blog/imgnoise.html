@@ -180,10 +180,10 @@ print(test.matrix)</code></pre>
 ## [3,]    1    1    1</code></pre>
 <p>Now, how does the speckle_noise() function behave on matrices?</p>
 <pre class="r"><code>print(speckle_noise(test.matrix))</code></pre>
-<pre><code>##          [,1]     [,2]     [,3]
-## [1,] 1.248684 1.248684 1.248684
-## [2,] 1.248684 1.248684 1.248684
-## [3,] 1.248684 1.248684 1.248684</code></pre>
+<pre><code>##           [,1]      [,2]      [,3]
+## [1,] 0.9197626 0.9197626 0.9197626
+## [2,] 0.9197626 0.9197626 0.9197626
+## [3,] 0.9197626 0.9197626 0.9197626</code></pre>
 <p>As you can see, the function generated a single random number and then applied the algebraic expression containing that number to every entry in the matrix. Clearly, this is not what I wanted, since for an image this would just mean a shift in color. In order to produce noise, a different random number would need to be generated for every entry.</p>
 <p>My first instinct was to iterate over every entry in an array using 2 nested for loops. The one I drafted looked something like this.</p>
 <pre class="r"><code>for (col in 1:ncol(test.matrix)) {
@@ -195,15 +195,15 @@ print(test.matrix)</code></pre>
 <p>I was fortunate enough to find the solution I was looking for in some notes that Andrew had made for our class, but that we did not have time to go over. They were related to functional programming, contained instructions on how to use the apply() function. In the context of the notes, apply() was being used to map functions to either the rows or the columns of a matrix, determined by setting the second argument to 1 or 2. I took a leap of faith and tried passing in a vector of both 1 and 2.</p>
 <pre class="r"><code>print(apply(test.matrix, c(1,2), imgnoise, &quot;speckle&quot;))</code></pre>
 <pre><code>##           [,1]     [,2]      [,3]
-## [1,] 0.8546888 1.050113 1.0229179
-## [2,] 0.8715380 1.256858 1.3195303
-## [3,] 1.1667675 1.138206 0.7627249</code></pre>
+## [1,] 1.0893884 0.985291 1.3265607
+## [2,] 1.0910289 1.211241 0.8051002
+## [3,] 0.7357669 1.040077 1.2134051</code></pre>
 <p>It worked! The function was applied to every element of the matrix. From here all I needed to do was find a way to accomodate arrays of all dimensions. I followed my instincts, and was quickly rewarded with an idea that worked.</p>
 <pre class="r"><code>print(apply(test.matrix, 1:length(dim(test.matrix)), imgnoise, &quot;speckle&quot;))</code></pre>
-<pre><code>##           [,1]      [,2]      [,3]
-## [1,] 0.9900867 1.0806131 1.1178246
-## [2,] 0.9092846 0.7585474 0.8956974
-## [3,] 1.1355163 1.1772332 1.0244166</code></pre>
+<pre><code>##          [,1]      [,2]      [,3]
+## [1,] 1.192606 0.7026806 0.7304188
+## [2,] 1.262119 1.3136017 0.9245222
+## [3,] 1.010564 1.1100736 0.6991730</code></pre>
 <p>And that is part of the story of imgnoise’s genesis. I plan to continue tweaking this package, to the point where some day it may be worthy of submission to CRAN. Any input and guidance from more experienced (or just more clever) developers would be highly valued.</p>
 <pre class="r"><code>print(&quot;Goodbye World!&quot;)</code></pre>
 <pre><code>## [1] &quot;Goodbye World!&quot;</code></pre>
