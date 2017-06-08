@@ -1,0 +1,10 @@
+---
+title: test rmd post
+author: ~
+date: '2017-06-08'
+slug: test-rmd-post
+categories: []
+tags: []
+description: ''
+---
+
