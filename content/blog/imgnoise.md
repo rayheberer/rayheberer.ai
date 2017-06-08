@@ -60,7 +60,7 @@ writePNG(profile_uniform, "~/R/publicblog/img/imgnoise/profile_uniform.png")
 writePNG(profile_gaussian, "~/R/publicblog/img/imgnoise/profile_gaussian.png")
 writePNG(profile_speckle, "~/R/publicblog/img/imgnoise/profile_speckle.png")
 ```
-![](/img/imgnoise/profile_uniform.png)
+![](rayheberer.netlify.com/img/imgnoise/profile_uniform.png)
 ![](/img/imgnoise/profile_gaussian.png)
 ![](/img/imgnoise/profile_speckle.png)
 
