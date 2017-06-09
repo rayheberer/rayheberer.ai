@@ -32,7 +32,7 @@ profile = readPNG("~/R/publicblog/img/profile.png")
 
 writePNG(profile, "~/R/publicblog/img/imgnoise/profile_unaltered.png")
 ```
-![](https://rayheberer.netlify.com/img/profile_unaltered.png)
+![](https://rayheberer.netlify.com/img/profile.png)
 
 Before moving further, I would like to quickly acknowledge [Rustum Choksi](http://www.math.mcgill.ca/rchoksi/) as the mathematician and researcher who inspired me to make this package. His work in deblurring and denoising sometimes makes use of functions in MATLAB that apply noise to images in the first place so that the efficacy of his algorithms can be tested. This is what gave me the idea to implement such a function in R. I also had the distinct pleasure of failing his Partial Differential Equations course while attending McGill University.
 
