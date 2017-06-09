@@ -1,0 +1,35 @@
+{{ partial "head" . }}
+  <body>
+    <div id="wrap">
+      {{ partial "header" . }}
+      <section id="about">
+        <div class="container">
+        <div class="avatar">
+          <img id="profile" class="img-circle" src="{{ .Site.BaseURL }}/img/profile.png" alt="profile image">
+        </div>
+        <h3>Hi, I'm <strong>{{ .Site.Params.author }}</strong>, a Data Scientist. </h3>
+        <h3>I believe that all data has <strong>stories</strong> to tell,</h3>
+        <h3>that may not form a <strong>cohesive narrative</strong>.</h3>
+        <br>
+        <h3>The world is definitely more complicated than I'd sometimes like to admit.</h3>
+        <h3>I want to help others make sense of a world with few things known <strong>absolutely</strong>.</h3>
+        <br>
+        <h3>My own story is a little simpler than the universe's.</h3>
+        <h3>It's told through my <a href="{{ .Site.BaseURL }}/projects/"> projects</a>, <a href="{{ .Site.BaseURL }}/music/">music</a> and <a href="{{ .Site.BaseURL }}/blog/">writing,</a></h3>
+        <h3>and summarized by my <a href="https://demo.nurlan.co/hugo-vitae/">resume</a>.</h3>
+        <h3>Feel free to contact me by <a href="mailto:{{ .Site.Params.Social.Email }}">email</a> anytime.</h3>
+        {{ partial "social.html" . }}
+        </div>
+      </section>
+    </div>
+    {{ partial "footer" . }}
+  </body>
+  
+  <style>
+    #profile {
+      height: 250px;
+      float: right;
+    }
+  </style>
+  
+</html>
