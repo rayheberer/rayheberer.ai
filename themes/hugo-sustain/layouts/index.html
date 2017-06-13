@@ -5,7 +5,7 @@
       <section id="about">
         <div class="container">
         <div class="avatar">
-          <img id="profile" class="img-circle" src="{{ .Site.BaseURL }}/img/profile_unaltered.png" alt="profile image">
+          <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/230264587&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
         </div>
         <h3>Hi, I'm <strong>{{ .Site.Params.author }}</strong>, a Data Scientist. </h3>
         <h3>I believe that all data has <strong>stories</strong> to tell,</h3>
@@ -20,9 +20,6 @@
             <h3>It's told through my <a href="{{ .Site.BaseURL }}/projects/"> projects</a>, music and <a href="{{ .Site.BaseURL }}/blog/">writing,</a></h3>
             <h3>and summarized by my <a href="https://demo.nurlan.co/hugo-vitae/">resume</a>.</h3>
             <h3>Feel free to contact me by <a href="mailto:{{ .Site.Params.Social.Email }}">email</a> anytime.</h3>
-          </div>
-          <div id="music" style="float: right; position: relative; bottom: 100px;">
-            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/230264587&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
           </div>
         </div>
         {{ partial "social.html" . }}
