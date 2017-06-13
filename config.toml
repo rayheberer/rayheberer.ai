@@ -38,7 +38,7 @@ theme = "hugo-sustain"
   name = "music"
   weight = 100
   identifier = "music"
-  url = "http://rayheberer.netlify.com/#music"
+  url = "http://rayheberer.netlify.com#music"
 [[menu.main]]
   name = "resume"
   identifier = "resume"
