@@ -6,4 +6,4 @@ source:
     
   - icon: fa fa-github
     description: A twitterbot that performs sentiment analysis on tweets and then disagrees or agrees with them.
-    name: @RobertRealGuy
+    name: RobertRealGuy
