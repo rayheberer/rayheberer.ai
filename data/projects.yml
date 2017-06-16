@@ -2,8 +2,6 @@ name: Projects
 source:
   - icon: fa fa-github
     description: A twitterbot that performs sentiment analysis on tweets and then disagrees or agrees with them.
-    name: RobertRealGuy
     
   - icon: fa fa-github
     description: An R package that generates random noise on images and arrays.
-    name: imgnoise
