@@ -3,16 +3,14 @@
     <h3>{{ .Site.Data.projects.name }}</h3>
     <div class="panel panel-default">
       <div class="panel-body">
-      {{ range $i, $el := .Site.Data.projects.source }}
         <h5>
           <i class="{{ .icon }}"></i>&nbsp;&nbsp;
-          <strong><a href="https://github.com/rayheberer/imgnoise" target="_blank">imgnoise</a></strong>&nbsp;-&nbsp;{{ $el.description }}
+          <strong><a href="https://github.com/rayheberer/imgnoise" target="_blank">imgnoise</a></strong>&nbsp;-&nbsp;A twitterbot that performs sentiment analysis on tweets and then disagrees or agrees with them.
         </h5>
         <h5>
           <i class="{{ .icon }}"></i>&nbsp;&nbsp;
-          <strong><a href="https://github.com/rayheberer/twitterbot" target="_blank">@RobertRealGuy</a></strong>&nbsp;-&nbsp;{{ $el.description }}
+          <strong><a href="https://github.com/rayheberer/twitterbot" target="_blank">@RobertRealGuy</a></strong>&nbsp;-&nbsp;An R package that generates random noise on images and arrays.
         </h5>
-      {{ end }}
       </div>
     </div>
   </div>
