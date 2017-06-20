@@ -199,7 +199,18 @@ ggplot(features.df, aes(x = key)) + geom_bar() + theme_minimal()
 ```
 
 ![](https://rayheberer.netlify.com/img/Danceability.png)
+
 ![](https://rayheberer.netlify.com/img/Energy.png)
+
 ![](https://rayheberer.netlify.com/img/Valence.png)
+
 ![](https://rayheberer.netlify.com/img/Mode.png)
+
 ![](https://rayheberer.netlify.com/img/Key.png)
+
+Already, I have a number of options to explore:
+-Valence clearly seems to have multiple peaks. Sad songs, happy songs, and in-between?
+-Can a song's likelihood of making the top charts be inferred from its danceability?
+-Why are so few songs on the top charts in the key of D#/Eb? Human vocal ranges?
+
+I will be undertaking a more involved interrogation of the data in the next few days, and pushing my results to a [GitHub Repository](https://github.com/rayheberer/spotify). Until then, I hope that this post has at the very least brought some peoples' attention to the wealth of data available through the Spotify Web API.
