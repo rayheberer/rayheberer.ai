@@ -3,6 +3,7 @@ author: Ray Heberer
 date: 2017-06-08
 linktitle: Applying Noise to Images with imgnoise
 title: Applying Noise to Images with imgnoise
+tags: ["R", "RStudio", "Signal Processing", "Image Blurring", "iXperience"]
 highlight: true
 ---
 
