@@ -71,3 +71,48 @@ top.song.ids is a character vector with a length of 200. This is what I will loo
 
 ### Making API Requests
 
+The endpoints that interested me the most were the ones pertaining audio features and audio analysis. Of course, getting basic information through the tracks-by-ID endpoint also seemed to be a good idea.
+
+Notice how I use that authorization.headers variable I made earlier as the value of the config argument in the GET function (made available throught he [httr package](https://cran.r-project.org/web/packages/httr/index.html)).
+
+Since I want to get results for all 200 ids in my list, I'm also wrapping the call in the lapply function.
+
+```
+tracks = lapply(1:200, function(n) {
+  GET(url = paste("https://api.spotify.com/v1/tracks/", top.song.ids[n], sep = ""),
+                        config = add_headers(authorization = authorization.header))
+})
+
+features = lapply(1:200, function(n) {
+  GET(url = paste0("https://api.spotify.com/v1/audio-features/", top.song.ids[n]),
+               config = add_headers(authorization = authorization.header))
+})
+```
+
+These return lists of objects of the type "response." Below I will show how I converted the "features" list into a tidy data frame. Though not shown, I went through a similar process with the "tracks" list.
+
+```
+features.content = sapply(1:200, function(n) {
+  content(features[[n]])
+})
+
+features.content = t(features.content)
+
+features.df = cbind(rank = 1:200, rank.desc = 200:1, danceability = features.content[,1], 
+                    energy = features.content[,2], key = features.content[,3], 
+                    loudness = features.content[,4], mode = features.content[,5],
+                    speechiness = features.content[,6], acousticness = features.content[,7],
+                    instrumentalness = features.content[,8], liveness = features.content[,9],
+                    valence = features.content[,10], tempo = features.content[,11], 
+                    duration_ms = features.content[,17], time_signature = features.content[,18])
+
+features.df = features.df %>% as.data.frame
+
+for (i in 1:ncol(features.df)) {
+  features.df[,i] = unlist(features.df[,i])
+}
+```
+
+The appropriate indexes for features.content were found by inspection. The content() function also proved to be invaluable.
+
+### Exploratory Data Analysis Part 1 - Summary Statistics
