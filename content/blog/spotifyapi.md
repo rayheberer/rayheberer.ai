@@ -191,7 +191,7 @@ For skewness, I'm using [Pearson's Coefficient of Skewness](http://www.statistic
 We're straying a bit far from the main purpose of this post, which was to help others get started with the Spotify API in R. I think that this demonstration so far has shown that the data is rather easy to work with, so I'll just end with some initial visualizations of the distributions of these variables, and briefly discuss one interesting result.
 
 ```
-ggplot(features.df, aes(x = danceability)) + geom_histogram(bins = 25) + theme_minimal() + geom_density()
+ggplot(features.df, aes(x = danceability)) + geom_histogram(bins = 25) + theme_minimal()
 ggplot(features.df, aes(x = energy)) + geom_histogram(bins = 25) + theme_minimal()
 ggplot(features.df, aes(x = valence)) + geom_histogram(bins = 25) + theme_minimal()
 ggplot(features.df, aes(x = mode)) + geom_bar() + theme_minimal()
