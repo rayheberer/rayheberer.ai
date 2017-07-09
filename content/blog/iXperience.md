@@ -7,7 +7,7 @@ tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
 highlight: true
 ---
 ![](/img/devils-peak.jpg)
-*Devil's peak*
+*One of my favorite hikes: Devil's Peak.*
 
 As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixperience.co.za/). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
 
@@ -36,7 +36,7 @@ The first week was a big wake up call to me. We were placed into groups of three
 This moment forced me to realize that if I was to succeed in the four week course, I would have to come to terms with my deficiencies as a team-player and as a leader. Luckily, and here more credit goes to how iX has built its curriculum and teaching philosophy, I had many opportunities to redeem myself. Every single week following the first one, we had another group project, and I really made an effort to change my attitude from the more self-centered one that resulted in me stealing a learning opportunity away from others.
 
 ![](/img/working.jpg)
-*A glimpse into the highly collaborative setting cultivated by iX*
+*A glimpse into the intensely collaborative setting cultivated by iX.*
 
 By the end, I certainly couldn't be said to be a perfect - or even a very good - collaborator, but I don't think I was a bad one either. The very same person who had called me out in the first week joined my team when I pitched the idea to do [exploratory analysis on Spotify data](https://github.com/rayheberer/spotify). It was a redemptive moment. In his review of me, our instructor [Andrew Collier](https://github.com/datawookie) brought attention not only to my technical competence, but to my leadership and mentoring, which I felt was a little generous, but also validating.
 
@@ -73,7 +73,7 @@ So, not only did I learn to value others, but I also learned to respect and rece
 ### Taking Ownership of My Learning
 
 ![](/img/iX.jpg)
-*Workshop 17, where classes take place, is a highly open and innovative environment*
+*Workshop 17, a highly open and innovative environment.*
 
 This point is a little bit of a departure from the previous two, which focused more on my own deficiencies and how being forced to adapt was a good thing. In fact, taking ownership of my learning is something I have always done, and can probably be considered a strength.
 
@@ -101,7 +101,7 @@ There was never a moment when I thought, 'I shouldn't try this because I need to
 ### Final Thoughts
 
 ![](/img/lions-head.jpg)
-*Here's to climbing many more peaks together*
+*Here's to climbing many more peaks together!*
 
 It's hard to judge exactly how big of an impact going to South Africa this summer has and will have on the rest of my life, but by every estimate it is a huge one.
 
