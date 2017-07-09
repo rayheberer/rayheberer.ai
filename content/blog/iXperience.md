@@ -7,6 +7,7 @@ tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
 highlight: true
 ---
 ![](/img/devils-peak.jpg)
+*Devil's peak*
 
 As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixperience.co.za/). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
 
@@ -14,9 +15,11 @@ Now, if this were a review of the program, it would be highly positive. As anyon
 
 However, this isn't a review, in the sense that I'm not going to impose the sort of objective impartiality on myself that I feel is an absolute requirement when writing something of that breed. I do hope that the things I express are relateable and genuine enough that people would still take them into account though when making their own decisions. Rather than a review, today I will be attempting to extract the key ingredients - both in the program and in my own attitude coming into it - that contributed to me having such an empowering and life changing iXperience.
 
+
 ### Learning to Value Others
 
 ![](/img/lions-head-friends.jpg)
+*Some of the amazing people I've met this summer.*
 
 I had a very bad time in university. So bad, in fact, that I dropped out after before finishing my degree. Even before that, I made a last minute decision to transfer from the University of Notre Dame to McGill University after my first year, thinking that a change in surroundings would improve a situation that was mostly a result of personal shortcomings.
 
@@ -33,12 +36,14 @@ The first week was a big wake up call to me. We were placed into groups of three
 This moment forced me to realize that if I was to succeed in the four week course, I would have to come to terms with my deficiencies as a team-player and as a leader. Luckily, and here more credit goes to how iX has built its curriculum and teaching philosophy, I had many opportunities to redeem myself. Every single week following the first one, we had another group project, and I really made an effort to change my attitude from the more self-centered one that resulted in me stealing a learning opportunity away from others.
 
 ![](/img/working.jpg)
+*A glimpse into the highly collaborative setting cultivated by iX*
 
 By the end, I certainly couldn't be said to be a perfect - or even a very good - collaborator, but I don't think I was a bad one either. The very same person who had called me out in the first week joined my team when I pitched the idea to do [exploratory analysis on Spotify data](https://github.com/rayheberer/spotify). It was a redemptive moment. In his review of me, our instructor [Andrew Collier](https://github.com/datawookie) brought attention not only to my technical competence, but to my leadership and mentoring, which I felt was a little generous, but also validating.
 
 My university experience was ultimately a failure because I didn't value people. I arrogantly proclaimed, "I don't need these classes. I can learn all of this on my own." It didn't occur to me that I probably wasn't unique, and that those around me were getting more out of each other, and out of our professors.
 
 I could have learnt all the material in the iXperience Data Science course on my own as well. But I wouldn't have grown as a person, and I would be stuck with the same shortcomings in attitude. I'm still a long way from overcoming them, but having an opportunity to learn to value the insights of my classmates and to look critically at myself as a person, is something I am very grateful for. More so than the specific material taught in class, the highly collaborative environment iXperience cultivated has been absolutely invaluable.
+
 
 ### Finding Role Models
 
@@ -64,9 +69,11 @@ It might be the case that everyone in the world has something to offer, but I'm 
 
 So, not only did I learn to value others, but I also learned to respect and receive mentorship from them. Currently, I'm in the [Applied AI](http://ixperience.co.za/courses/applied-ai) course being taught by an industry expert, Raymond Ellis. Unlike with Andrew, the two of us do not have a common background in physics that makes communication inherently easy. If I had come into the course with a more closed mind, I probably would have found it hard to learn from Raymond. Thanks to the transformative experience of my first month, I have found Raymond to be a valuable source of knowledge, even if the two of us tend to say the same things in different ways from time to time.
 
+
 ### Taking Ownership of My Learning
 
 ![](/img/iX.jpg)
+*Workshop 17, where classes take place, is a highly open and innovative environment*
 
 This point is a little bit of a departure from the previous two, which focused more on my own deficiencies and how being forced to adapt was a good thing. In fact, taking ownership of my learning is something I have always done, and can probably be considered a strength.
 
@@ -90,9 +97,11 @@ But I wasn't only rewarded for digging deeper into the class material. The focus
 
 There was never a moment when I thought, 'I shouldn't try this because I need to finish my assignment.' In this way, ownership of my learning lay not with the institution, but fully in my own hands. And this is a major reason I think iXperience has been nothing short of an amazing time for me.
 
+
 ### Final Thoughts
 
 ![](/img/lions-head.jpg)
+*Here's to climbing many more peaks together*
 
 It's hard to judge exactly how big of an impact going to South Africa this summer has and will have on the rest of my life, but by every estimate it is a huge one.
 
