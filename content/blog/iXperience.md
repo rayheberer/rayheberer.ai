@@ -7,7 +7,7 @@ tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
 highlight: true
 ---
 ![](/img/devils-peak.jpg)
-*One of my favorite hikes: Devil's Peak.*
+*Devil's Peak.*
 
 As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixperience.co.za/). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
 
