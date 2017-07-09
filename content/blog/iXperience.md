@@ -3,9 +3,10 @@ author: Ray Heberer
 date: 2017-07-09
 linktitle: My Cape Town iXperience
 title: My Cape Town iXperience
-tags: [Personal", "Review", "Cape Town", "iXperience", "Travel"]
+tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
 highlight: true
 ---
+![](/img/devils-peak.jpg)
 
 As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixperience.co.za/). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
 
@@ -14,6 +15,8 @@ Now, if this were a review of the program, it would be highly positive. As anyon
 However, this isn't a review, in the sense that I'm not going to impose the sort of objective impartiality on myself that I feel is an absolute requirement when writing something of that breed. I do hope that the things I express are relateable and genuine enough that people would still take them into account though when making their own decisions. Rather than a review, today I will be attempting to extract the key ingredients - both in the program and in my own attitude coming into it - that contributed to me having such an empowering and life changing iXperience.
 
 ### Learning to Value Others
+
+![](/img/lions-head-friends.jpg)
 
 I had a very bad time in university. So bad, in fact, that I dropped out after before finishing my degree. Even before that, I made a last minute decision to transfer from the University of Notre Dame to McGill University after my first year, thinking that a change in surroundings would improve a situation that was mostly a result of personal shortcomings.
 
@@ -28,6 +31,8 @@ I was in the [Data Science](http://ixperience.co.za/courses/data-science) course
 The first week was a big wake up call to me. We were placed into groups of three, and told to make an R package (the result of which is [imgnoise](https://github.com/rayheberer/imgnoise) in my case). Driven by untempered competitiveness, I made decisions without consulting my teammates, and ended up isolating myself on this first project. I can't express how grateful I am to one of my group members for not being afraid to directly tell me "that's not really how group projects work Ray."
 
 This moment forced me to realize that if I was to succeed in the four week course, I would have to come to terms with my deficiencies as a team-player and as a leader. Luckily, and here more credit goes to how iX has built its curriculum and teaching philosophy, I had many opportunities to redeem myself. Every single week following the first one, we had another group project, and I really made an effort to change my attitude from the more self-centered one that resulted in me stealing a learning opportunity away from others.
+
+![](/img/working.jpg)
 
 By the end, I certainly couldn't be said to be a perfect - or even a very good - collaborator, but I don't think I was a bad one either. The very same person who had called me out in the first week joined my team when I pitched the idea to do [exploratory analysis on Spotify data](https://github.com/rayheberer/spotify). It was a redemptive moment. In his review of me, our instructor [Andrew Collier](https://github.com/datawookie) brought attention not only to my technical competence, but to my leadership and mentoring, which I felt was a little generous, but also validating.
 
@@ -61,6 +66,8 @@ So, not only did I learn to value others, but I also learned to respect and rece
 
 ### Taking Ownership of My Learning
 
+![](/img/iX.jpg)
+
 This point is a little bit of a departure from the previous two, which focused more on my own deficiencies and how being forced to adapt was a good thing. In fact, taking ownership of my learning is something I have always done, and can probably be considered a strength.
 
 University was a poor fit for me not only because of the things I did poorly, but also because it didn't complement and reward the things I do well. I have always been enormously curious, interested in studying things both inside and outside of any course's curriculum, and the university setting was probably not the best environment to support such a mindset (this is why I say above I should have left earlier). The reason for this is largely because the things that guided distribution of effort in university were things like test scores and GPAs, which had little value in their own right while still heavily constraining what it was smart to put time into.
@@ -84,6 +91,8 @@ But I wasn't only rewarded for digging deeper into the class material. The focus
 There was never a moment when I thought, 'I shouldn't try this because I need to finish my assignment.' In this way, ownership of my learning lay not with the institution, but fully in my own hands. And this is a major reason I think iXperience has been nothing short of an amazing time for me.
 
 ### Final Thoughts
+
+![](/img/lions-head.jpg)
 
 It's hard to judge exactly how big of an impact going to South Africa this summer has and will have on the rest of my life, but by every estimate it is a huge one.
 
