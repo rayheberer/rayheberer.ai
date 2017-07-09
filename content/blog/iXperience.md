@@ -21,7 +21,7 @@ However, this isn't a review, in the sense that I'm not going to impose the sort
 ![](/img/lions-head-friends.jpg)
 *Some of the amazing people I've met this summer.*
 
-I had a very bad time in university. So bad, in fact, that I dropped out after before finishing my degree. Even before that, I made a last minute decision to transfer from the University of Notre Dame to McGill University after my first year, thinking that a change in surroundings would improve a situation that was mostly a result of personal shortcomings.
+I had a very bad time in university. So bad, in fact, that I dropped out before finishing my degree. Even before that, I made a last minute decision to transfer from the University of Notre Dame to McGill University after my first year, thinking that a change in surroundings would improve a situation that was mostly a result of personal shortcomings.
 
 While I don't regret leaving - in fact I think I should have done so after my first year instead of transferring - I do believe my biggest mistake was not making an effort to maintain the connections I made each year. In fact, the mistake probably began even earlier, when I didn't bother making these connections deep enough to the point where I could feel comfortable sharing my dissatisfaction with anyone around me.
 
