@@ -29,6 +29,7 @@ updateStatus('Hello!', inReplyTo = 884580654117076992)
 
 ![](/img/hello.png)
 
+
 Clearly, that didn't work as intended.
 
 ### Twitter's Tweet Processing
@@ -69,6 +70,7 @@ retweet(tweet[[3]], "Tubular!")
 ```
 
 ![](/img/retweetcomment.png)
+
 
 Hope this helps! Before I forget, let's say hello properly to our buddy Mr. Musk.
 
