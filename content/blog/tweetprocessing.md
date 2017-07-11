@@ -70,4 +70,11 @@ retweet(tweet[[3]], "Tubular!")
 
 ![](/img/retweetcomment.png)
 
-Hope this helps!
+Hope this helps! Before I forget, let's say hello properly to our buddy Mr. Musk.
+
+```
+content = paste("@elonmusk", "Hello!")
+updateStatus(content, inReplyTo = 884580654117076992)
+```
+
+![](/img/helloelon.png)
