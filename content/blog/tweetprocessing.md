@@ -33,11 +33,11 @@ Clearly, that didn't work as intended.
 
 ### Twitter's Automatic Tweet Processing
 
-I can't really say how I arrived at the workaround to this problem. By collecting clues from pages like [Twitter SMS Commands](https://support.twitter.com/articles/14020) and [Twitter's Link Service](https://support.twitter.com/articles/109623) I had some directions to pursue using trial and error. It just so happened that I succeeded after the first trial.
+I can't really say how I arrived at the workaround to this problem. By collecting clues from pages like [Twitter SMS Commands](https://support.twitter.com/articles/14020) and [Twitter's Link Service](https://support.twitter.com/articles/109623) I had some directions to pursue using trial and error. It just so happened that I succeeded after just a couple trials.
 
 Briefly, if you tweet through SMS and prepend a twitter handle to your tweet, you will respond to that person. Also, if you include a link in a tweet, it will automatically be shortened to something in http://t.co.
 
-Now, there's no reason to expect this to have a correspondence to tweeting using the function in the twitteR package, but it does. Shown below are ways of responding to and quoting tweets, where the "twt" argument is an status object from the twitteR package.
+Now, there's no reason to expect this to have a correspondence to tweeting using the function in the twitteR package, but it does. Shown below are ways of responding to and quoting tweets, where the "twt" argument is a status object from the twitteR package.
 
 ```
 retweet = function(twt, comment=NULL) {
