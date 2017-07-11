@@ -31,7 +31,7 @@ updateStatus('Hello!', inReplyTo = 884580654117076992)
 
 Clearly, that didn't work as intended.
 
-### Twitter's Automatic Tweet Processing
+### Twitter's Tweet Processing
 
 I can't really say how I arrived at the workaround to this problem. By collecting clues from pages like [Twitter SMS Commands](https://support.twitter.com/articles/14020) and [Twitter's Link Service](https://support.twitter.com/articles/109623) I had some directions to pursue using trial and error. It just so happened that I succeeded after just a couple trials.
 
