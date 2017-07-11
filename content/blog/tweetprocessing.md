@@ -11,7 +11,7 @@ highlight: true
 
 Last month I built a [twitterbot](https://github.com/rayheberer/twitterbot), that I haven't really talked about much because the project is not at a point yet where I'm proud of it. One major challenge I had was getting my bot to respond to, and quote (retweet) tweets.
 
-[](/img/retweetreply.png)
+![](/img/retweetreply.png)
 *A reply and a quoted tweet (retweet)*
 
 I am using the [twitteR](https://cran.r-project.org/web/packages/twitteR/index.html) package as an interface for interacting with the [Twitter API](https://dev.twitter.com/overview/api). According to the author of twitteR, it is now in a "leisurely deprecation period," and people should begin to switch over to [rtweet](https://github.com/mkearney/rtweet). However, twitteR works quite well and conveniently takes care of all the steps in the OAuth dance with one handy function.
