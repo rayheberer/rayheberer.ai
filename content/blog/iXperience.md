@@ -9,7 +9,7 @@ highlight: true
 ![](/img/devils-peak.jpg)
 *Devil's Peak.*
 
-As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixperience.co.za/). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
+As both of my previous posts have mentioned, for the last two months I have been participating in a program called [iXperience](http://ixlink.co/honest-owl). In my opinion, it speaks to the strength of the program that I find it difficult to summarize what exactly it is, but I'll make an attempt anyway. Briefly, iXperience is a summer abroad that offers highly relevant and challenging courses, real work experience, and genuine exposure to a new culture, that seeks to fill in the gaps left by a university education and truly prepare students for the "real" world.
 
 Now, if this were a review of the program, it would be highly positive. As anyone who met me during my time in Cape Town would attest to, I have been extremely successful while here, and so future readers - perhaps students considering iX for themselves - should be advised that like many things, my opinions reflect my personal experience.
 

@@ -9,7 +9,7 @@ highlight: true
 
 ### Introduction
 
-This week at [iXperience](http://ixperience.co.za/) I have been given the freedom to choose a dataset that interests me and perform some analysis. Given my background in music, Spotify seemed like a good choice.
+This week at [iXperience](http://ixlink.co/honest-owl) I have been given the freedom to choose a dataset that interests me and perform some analysis. Given my background in music, Spotify seemed like a good choice.
 
 In this post, I will show how to authorize a [Spotify App](https://developer.spotify.com/my-applications/#!/applications) from within R, in the hope that my many trials and errors will benefit others who could potentially be interested in this rich source of data.
 

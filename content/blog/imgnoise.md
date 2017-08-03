@@ -19,7 +19,7 @@ print("Hello World!")
 
 There. Much better! I can now breathe a sigh of relief, and move on to the topic of today's post: the [imgnoise R package](https://github.com/rayheberer/imgnoise) I am developing.
 
-Sometimes it's hard to believe that I have only been working with R for a single week, and am already building a package. Granted, I do have about half a year's worth of experience using Python recreationally to solve [Project Euler](https://projecteuler.net/) problems, but I don't think that takes away from the excellent instruction I have received from [iXperience](http://ixperience.co.za/) and [Andrew Collier](http://www.exegetic.biz/blog/) (check out his blog, it's great brain-food for any data enthusiast).
+Sometimes it's hard to believe that I have only been working with R for a single week, and am already building a package. Granted, I do have about half a year's worth of experience using Python recreationally to solve [Project Euler](https://projecteuler.net/) problems, but I don't think that takes away from the excellent instruction I have received from [iXperience](http://ixlink.co/honest-owl) and [Andrew Collier](http://www.exegetic.biz/blog/) (check out his blog, it's great brain-food for any data enthusiast).
 
 Notice how I'm sneaking in personal details, so that I can both introduce myself and talk about a topic in this first blog post? Clever? Or clunky? You tell me!
 
