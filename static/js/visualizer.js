@@ -107,10 +107,10 @@ function vibesPeriVibe(category, data) {
 
     }
 
-function bindData() {
+function bindData(data_src) {
   format = d3.time.format("%Y-%m-%d");
 
-  d3.csv("vibes_extract.csv", function(d) {
+  d3.csv(data_src, function(d) {
     d['vib_event_date'] = format.parse(d['vib_event_date'])
     return d;
   },draw);
