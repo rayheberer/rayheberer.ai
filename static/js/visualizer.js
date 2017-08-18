@@ -242,5 +242,5 @@ function drawTable(data_src) {
   d3.csv(data_src, function(d) {
     d['Total VIBe Products Sold'] = +d['Total VIBe Products Sold']; 
     return d;
-  }, draw);
+  }, table);
 }
