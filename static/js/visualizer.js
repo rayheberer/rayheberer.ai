@@ -9,6 +9,7 @@ function dateRange(data, startDate, endDate) {
   return data;
 }
 
+// append an empty svg element to the specified element of the page with a single group of class chart and a certain id
 function newChart(pageElement, width, height, id) {
   return d3.select(pageElement)
            .append("svg").attr("width", width).attr("height", height)
@@ -36,8 +37,8 @@ function nestByCategory(category, data) {
                   .entries(data);
 }
 
-function vibesByCategory(category, data) {
-  var categoryNested = nestByCategory(category, data);
+function vibesPeriVibe(category, data) {
+    var categoryNested = nestByCategory(category, data);
 
   var vibesByCategory = [];
   var ivibesByCategory = [];
@@ -49,11 +50,12 @@ function vibesByCategory(category, data) {
 
     vibe[category] = getKey(d);
     vibe['metric'] = "vibes";
-    vibe['count'] = d.values.vibes;
+    vibe['VIBes / iVIBes'] = d.values.vibes;
+    vibe['VIBes per iVIBe'] = d.values.vibes / d.values.ivibes
 
     ivibe[category] = getKey(d);
     ivibe['metric'] = "ivibes";
-    ivibe['count'] = d.values.ivibes;
+    ivibe['VIBes / iVIBes'] = d.values.ivibes;
 
     vibesByCategory.push(vibe);
     ivibesByCategory.push(ivibe);
@@ -63,52 +65,53 @@ function vibesByCategory(category, data) {
   
   return byCategory
 }
-  
-function draw(data) {
+
+
+  function draw(data) {
 
       "use strict";
       var margin = 30,
-          width = "100%",
+          width = "80%",
           height = 300 - margin;
 
       // filter data by date
       data = dateRange(data, "2017-06-01", "2017-07-01");
 
       // BY COUNTRY BREAKDOWN START =========================================
-      var svgCountry = newChart("#country", width, height, "country-breakdown");
-      var byCountry = vibesByCategory("country", data);
+      var svgDate = newChart("#chart", width, height, "date-breakdown");
+      var byDate = vibesPeriVibe("vib_event_date", data);
 
-      // bar chart with two y-axes, logarithmic scale on each, categorical x country
-      var vibCategoryChart = new dimple.chart(svgCountry, byCountry);
-      var x = vibCategoryChart.addCategoryAxis("x", ["country", "metric"]);
-      var y = vibCategoryChart.addLogAxis("y", "count", 10);
+      var vibCategoryChart = new dimple.chart(svgDate, byDate);
+
+      // date axis (faceting by vibes / ivibes)
+      var x = vibCategoryChart.addCategoryAxis("x", ["vib_event_date", "metric"]);
+
+      // hidden date axis with no facet (for line series)
+      var x2 = vibCategoryChart.addCategoryAxis("x", "vib_event_date");
+      x2.hidden = true;
+
+      // logarithmic left axis
+      var y = vibCategoryChart.addLogAxis("y", "VIBes / iVIBes", 10);
+      y.showGridlines = false;
       y.overrideMin = 1;
-      vibCategoryChart.addSeries("metric", dimple.plot.bar);
-      vibCategoryChart.addLegend(65, 10, 510, 20, "left");
+    
+      // linear right axis
+      var y2 = vibCategoryChart.addMeasureAxis("y", "VIBes per iVIBe");
+      y2.showGridlines = false;
+
+      // bar chart vibes|ivibes ~ date, line chart vibes/ivibes~date
+      vibCategoryChart.addSeries("metric", dimple.plot.bar, [x, y]);
+      vibCategoryChart.addSeries(null, dimple.plot.line, [x2, y2]); 
+
       vibCategoryChart.draw();
-      // BY COUNTRY BREAKDOWN END ===========================================
 
-      // BY VIB_CATEGORY BREAKDOWN START ====================================
-      var svgVibCategory = newChart("#vib-category", width, height, "vib-category-breakdown");
-      var byVibCategory = vibesByCategory("vib_category", data);
+    }
 
-      // bar chart with two y-axes, logarithmic scale on each, categorical x country
-      var vibCategoryChart = new dimple.chart(svgVibCategory, byVibCategory);
-      var x = vibCategoryChart.addCategoryAxis("x", ["vib_category", "metric"]);
-      var y = vibCategoryChart.addLogAxis("y", "count", 10);
-      y.overrideMin = 1;
-      vibCategoryChart.addSeries("metric", dimple.plot.bar);
-      vibCategoryChart.addLegend(65, 10, 510, 20, "left");
-      vibCategoryChart.draw();
-      // BY VIB_CATEGORY BREAKDOWN END ======================================
+function bindData() {
+  format = d3.time.format("%Y-%m-%d");
 
-  }
-
-function updatePage() {
-   format = d3.time.format("%Y-%m-%d");
-
-	  d3.csv("http://triggerise.org/wp-content/uploads/2017/08/vibes_extract.csv", function(d) {
-      d['vib_event_date'] = format.parse(d['vib_event_date'])
-      return d;
-    },draw);
+  d3.csv("vibes_extract.csv", function(d) {
+    d['vib_event_date'] = format.parse(d['vib_event_date'])
+    return d;
+  },draw);
 }
