@@ -130,7 +130,7 @@ var svg = d3.select("#map").append("svg")
     .attr("height", h)
     .attr("width", w);
 
-d3.json("https://rayheberer.netlify.com/js/countries.geo.json", function(error, data) {
+d3.json("https://rayheberer.netlify.com/js/countries.js", function(error, data) {
     d3.csv(data_src, function(error, csv) {
         var world = data.features;
 
