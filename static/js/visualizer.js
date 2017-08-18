@@ -107,7 +107,7 @@ function vibesPeriVibe(category, data) {
 
     }
 
-function bindData(data_src) {
+function grouped_bar_line(data_src) {
   format = d3.time.format("%Y-%m-%d");
 
   d3.csv(data_src, function(d) {
