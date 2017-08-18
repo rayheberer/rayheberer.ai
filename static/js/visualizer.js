@@ -118,7 +118,7 @@ function grouped_bar_line(data_src) {
 
 function geo_heatmap(data_src) {
 var h = 450,
-    w = 100%
+    w = "100%";
 // set-up unit projection and path
 var projection = d3.geo.mercator()
     .scale(1)
