@@ -182,3 +182,65 @@ debugger;
 
   })
 }
+
+    function table(data) {
+        
+        var sortAscending = true;
+      var table = d3.select('#table').append('table');
+      var titles = d3.keys(data[0]);
+
+      var headers = table.append('thead').append('tr')
+                         .selectAll('th')
+                         .data(titles).enter()
+                         .append('th')
+                         .text(function (d) {
+                          return d;
+                         })
+                         .on('click', function (d) {
+                         headers.attr('class', 'header');
+                           
+                         if (sortAscending) {
+                           rows.sort(function(a, b) { return b[d] < a[d]; });
+                           sortAscending = false;
+                           this.className = 'aes';
+                           d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
+                           d3.selectAll("tr").filter(":nth-child(odd)").attr("class", null);
+
+
+                           } else {
+                         rows.sort(function(a, b) { return b[d] > a[d]; });
+                         sortAscending = true;
+                         this.className = 'des';
+                           d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
+                           d3.selectAll("tr").filter(":nth-child(odd)").attr("class", null);
+                         }
+                           
+                         });
+        
+      var rows = table.append('tbody').selectAll('tr')
+                      .data(data).enter()
+                      .append('tr');
+      rows.selectAll('td')
+      .data(function (d) {
+        return titles.map(function (k) {
+        return { 'value': d[k], 'name': k};
+        });
+      }).enter()
+        .append('td')
+        .attr('data-th', function (d) {
+          return d.name;
+        })
+        .text(function (d) {
+          return d.value;
+        });
+
+        d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
+
+      };
+
+function drawTable(data_src) {
+  d3.csv(data_src, function(d) {
+    d['Total VIBe Products Sold'] = +d['Total VIBe Products Sold']; 
+    return d;
+  }, draw);
+}
