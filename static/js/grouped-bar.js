@@ -1,8 +1,8 @@
 function grouped_bar(element, data, grouping) {
 
-  var margin = {top: (parseInt(d3.select('body').style('width'), 10)/10), right: (parseInt(d3.select('body').style('width'), 10)/20), bottom: (parseInt(d3.select('body').style('width'), 10)/5), left: (parseInt(d3.select('body').style('width'), 10)/20)},
-      width = parseInt(d3.select('body').style('width'), 10) - margin.left - margin.right,
-      height = parseInt(d3.select('body').style('height'), 10) - margin.top - margin.bottom;
+  var margin = {top: (parseInt(d3.select(element).style('width'), 10)/10), right: (parseInt(d3.select(element).style('width'), 10)/20), bottom: (parseInt(d3.select(element).style('width'), 10)/5), left: (parseInt(d3.select(element).style('width'), 10)/20)},
+      width = parseInt(d3.select(element).style('width'), 10) - margin.left - margin.right,
+      height = parseInt(d3.select(element).style('height'), 10) - margin.top - margin.bottom;
 
   var x0 = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
