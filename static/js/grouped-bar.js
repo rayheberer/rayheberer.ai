@@ -1,8 +1,8 @@
 function grouped_bar(element, data, grouping) {
 
-  var margin = {top: (parseInt(d3.select(element).style('width'), 10)/10), right: (parseInt(d3.select(element).style('width'), 10)/20), bottom: (parseInt(d3.select(element).style('width'), 10)/5), left: (parseInt(d3.select(element).style('width'), 10)/20)},
-      width = parseInt(d3.select(element).style('width'), 10) - margin.left - margin.right,
-      height = parseInt(d3.select(element).style('height'), 10) - margin.top - margin.bottom;
+  var margin = {top: 30, right: 50, bottom: 90, left: 50},
+      width = 800 - margin.left - margin.right,
+      height = 300 - margin.top - margin.bottom;
 
   var x0 = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
@@ -30,23 +30,30 @@ function grouped_bar(element, data, grouping) {
 
 
   var svg = d3.select(element).append("svg")
-      .attr("width", width + margin.left + margin.right)
+      .attr("width", "100%")
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   
-  d3.csv(data, function draw(data) {
+  return {
+
+    margin: margin,
+    height: height,
+    width: width,
+
+
+    f: d3.csv(data, function draw(data) {
 
     var options = d3.keys(data[0]).filter(function(key) { return key !== grouping; });
 
     data.forEach(function(d) {
-        d.valores = options.map(function(name) { return {name: name, value: +d[name]}; });
+        d.values = options.map(function(name) { return {name: name, value: +d[name]}; });
     });
 
     x0.domain(data.map(function(d) { return d[grouping]; }));
     x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
-    y.domain([1, d3.max(data, function(d) { return d3.max(d.valores, function(d) { return d.value; }); })]);
+    y.domain([1, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -69,7 +76,7 @@ function grouped_bar(element, data, grouping) {
         .attr("transform", function(d) { return "translate(" + x0(d[grouping]) + ",0)"; });
 
     bar.selectAll("rect")
-        .data(function(d) { return d.valores; })
+        .data(function(d) { return d.values; })
         .enter().append("rect")
         .attr("width", x1.rangeBand())
         .attr("x", function(d) { return x1(d.name); })
@@ -114,7 +121,6 @@ function grouped_bar(element, data, grouping) {
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
+  })
   }
-);
-
 }
