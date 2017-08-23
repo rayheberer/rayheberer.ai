@@ -1,32 +1,21 @@
-function dateRange(data, startDate, endDate) {
-  startDate = new Date(startDate);
-  endDate = new Date(endDate);
+function date_range(data, start, end) {
+  start = new Date(start);
+  end = new Date(end);
 
   data = data.filter(function(d) {
-    return d['vib_event_date'] > startDate && d['vib_event_date'] < endDate;
+    d['vib_event_date'] = new Date(d['vib_event_date']);
+    return d['vib_event_date'] > start && d['vib_event_date'] < end;
   });
 
   return data;
 }
 
-// append an empty svg element to the specified element of the page with a single group of class chart and a certain id
-function newChart(pageElement, width, height, id) {
-  return d3.select(pageElement)
-           .append("svg").attr("width", width).attr("height", height)
-           .append("g").attr("class", "chart").attr("id", id);
-}
-
-// getting the key from an array object tends to be an accessor function that gets called a lot
-function getKey(d) {
-  return d['key'];
-}
-
-function nestByCategory(category, data) {
-  return d3.nest().key(function(d) {return d[category]; })
+function group_by_category(data, category) {
+  var nested =  d3.nest().key(function(d) {return d[category];})
                   .rollup(function(v) {
                     var ivibes = d3.set();
                     v.forEach(function(d) {
-                      ivibes.add(d['rafiki_id']);
+                      ivibes.add(d['ivib_id']);
                     });
 
                     return {
@@ -34,213 +23,149 @@ function nestByCategory(category, data) {
                       ivibes: ivibes.values().length
                     };
                   })
-                  .entries(data);
-}
+                  .entries(data)
 
-function vibesPeriVibe(category, data) {
-    var categoryNested = nestByCategory(category, data);
-
-  var vibesByCategory = [];
-  var ivibesByCategory = [];
-
-  categoryNested.forEach(function(d){
-
-    var vibe = {};
-    var ivibe = {};
-
-    vibe[category] = getKey(d);
-    vibe['metric'] = "vibes";
-    vibe['VIBes / iVIBes'] = d.values.vibes;
-    vibe['VIBes per iVIBe'] = d.values.vibes / d.values.ivibes
-
-    ivibe[category] = getKey(d);
-    ivibe['metric'] = "ivibes";
-    ivibe['VIBes / iVIBes'] = d.values.ivibes;
-
-    vibesByCategory.push(vibe);
-    ivibesByCategory.push(ivibe);
+  var grouped = [];
+  nested.forEach(function(d) {
+    grouped.push({
+      category: d.key,
+      vibes: d.values.vibes,
+      ivibes: d.values.ivibes
+    });
   });
-  
-  var byCategory = vibesByCategory.concat(ivibesByCategory);
-  
-  return byCategory
+
+  return grouped;
 }
 
+// =======================================================
 
-  function draw(data) {
+function grouped_bar(element, data, grouping) {
 
-      "use strict";
-      var margin = 30,
-          width = "100%",
-          height = 300 - margin;
+  var margin = {top: 30, right: 50, bottom: 90, left: 50},
+      width = 800 - margin.left - margin.right,
+      height = 300 - margin.top - margin.bottom;
 
-      // filter data by date
-      data = dateRange(data, "2017-06-01", "2017-07-01");
+  var x0 = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
 
-      // BY COUNTRY BREAKDOWN START =========================================
-      var svgDate = newChart("#chart", width, height, "date-breakdown");
-      var byDate = vibesPeriVibe("vib_event_date", data);
+  var x1 = d3.scale.ordinal();
 
-      var vibCategoryChart = new dimple.chart(svgDate, byDate);
+  var y = d3.scale.log()
+      .range([height, 0]);
 
-      // date axis (faceting by vibes / ivibes)
-      var x = vibCategoryChart.addCategoryAxis("x", ["vib_event_date", "metric"]);
+  var colorRange = d3.scale.category20();
+  var color = d3.scale.ordinal()
+      .range(colorRange.range());
 
-      // hidden date axis with no facet (for line series)
-      var x2 = vibCategoryChart.addCategoryAxis("x", "vib_event_date");
-      x2.hidden = true;
+  var xAxis = d3.svg.axis()
+      .scale(x0)
+      .orient("bottom");
 
-      // logarithmic left axis
-      var y = vibCategoryChart.addLogAxis("y", "VIBes / iVIBes", 10);
-      y.showGridlines = false;
-      y.overrideMin = 1;
-    
-      // linear right axis
-      var y2 = vibCategoryChart.addMeasureAxis("y", "VIBes per iVIBe");
-      y2.showGridlines = false;
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .tickValues([1, 10, 100, 1000, 10000])
+      .tickFormat(d3.format(".1s"));
 
-      // bar chart vibes|ivibes ~ date, line chart vibes/ivibes~date
-      vibCategoryChart.addSeries("metric", dimple.plot.bar, [x, y]);
-      vibCategoryChart.addSeries(null, dimple.plot.line, [x2, y2]); 
-
-      vibCategoryChart.draw();
-
-    }
-
-function grouped_bar_line(data_src) {
-  format = d3.time.format("%Y-%m-%d");
-
-  d3.csv(data_src, function(d) {
-    d['vib_event_date'] = format.parse(d['vib_event_date'])
-    return d;
-  },draw);
-}
-
-function geo_heatmap(data_src) {
-var h = 450,
-    w = "100%";
-// set-up unit projection and path
-var projection = d3.geo.mercator()
-    .scale(1)
-    .translate([0, 0]);
-var path = d3.geo.path()
-    .projection(projection);
-// set-up svg canvas
-var svg = d3.select("#map").append("svg")
-    .attr("height", h)
-    .attr("width", w);
-
-d3.json("https://rayheberer.netlify.com/js/countries.js", function(error, data) {
-    d3.csv(data_src, function(error, csv) {
-        var world = data.features;
-
-        // color scale for data, starting from 0, ending at max
-        var color = d3.scale.linear()
-                      .range(["red", "blue"])
-                      .domain([0, +d3.max(csv)['Total VIBe Products Sold']])
+  var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
 
 
-        // calculate bounds, scale and transform 
-        // see http://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object
-        var b = path.bounds(data),
-            s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h),
-            t = [(w - s * (b[1][0] + b[0][0])) / 2.5, (h - s * (b[1][1] + b[0][1])) / 1.3];
-        projection.scale(s+30)
-            .translate(t);
-        svg.selectAll("path")
-            .data(world).enter()
-            .append("path")
-            .style("fill", getColor)
-            .style("stroke", "grey")
-            .style("stroke-width", "1px")
-            .attr("d", path)
-            .on("mouseover", handleMouseOver)
-            .on("mouseout", handleMouseOut);
-        
+  var svg = d3.select(element).append("svg")
+      .attr("width", "100%")
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        // color in countries
-        function getColor(data) {
-          var value = 0;
-          csv.forEach(function(d, i) {
-            if(data.properties.name == d.Country) {
-              value = +d['Total VIBe Products Sold'];
-              return;
-            };
-          });
-          return color(value);
-        }
+  
+  return {
 
-        function handleMouseOver(d, i) {
-            d3.select(this).style("stroke-width", "1.8px");
-        }
+    margin: margin,
+    height: height,
+    width: width,
 
-        function handleMouseOut(d, i) {
-            d3.select(this).style("stroke-width", "1px");
-        }
-debugger;
-    })
 
+    f: d3.json(data, function(data) {
+
+    data = date_range(data, "2017-06-01", "2017-07-01");
+    data = group_by_category(data, grouping);
+
+    var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
+
+    data.forEach(function(d) {
+        d.values = options.map(function(name) { return {name: name, value: +d[name]}; });
+    });
+
+    x0.domain(data.map(function(d) { return d.category; }));
+    x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
+    y.domain([1, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end");
+
+    var bar = svg.selectAll(".bar")
+        .data(data)
+        .enter().append("g")
+        .attr("class", "rect")
+        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
+
+    bar.selectAll("rect")
+        .data(function(d) { return d.values; })
+        .enter().append("rect")
+        .attr("width", x1.rangeBand())
+        .attr("x", function(d) { return x1(d.name); })
+        .attr("y", function(d) { return y(d.value); })
+        .attr("value", function(d){return d.name;})
+        .attr("height", function(d) { return height - y(d.value); })
+        .style("fill", function(d) { return color(d.name); });
+
+    bar
+        .on("mousemove", function(d){
+            divTooltip.style("left", d3.event.pageX+10+"px");
+            divTooltip.style("top", d3.event.pageY-25+"px");
+            divTooltip.style("display", "inline-block");
+            var x = d3.event.pageX, y = d3.event.pageY;
+            var elements = document.querySelectorAll(':hover');
+            debugger;
+            l = elements.length
+            l = l-1
+            elementData = elements[l].__data__
+            divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
+        });
+    bar
+        .on("mouseout", function(d){
+            divTooltip.style("display", "none");
+        });
+
+
+    var legend = svg.selectAll(".legend")
+        .data(options.slice())
+        .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+    legend.append("text")
+        .attr("x", width - 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
   })
-}
-
-    function table(data) {
-        
-        var sortAscending = true;
-      var table = d3.select('#table').append('table');
-      var titles = d3.keys(data[0]);
-
-      var headers = table.append('thead').append('tr')
-                         .selectAll('th')
-                         .data(titles).enter()
-                         .append('th')
-                         .text(function (d) {
-                          return d;
-                         })
-                         .on('click', function (d) {
-                         headers.attr('class', 'header');
-                           
-                         if (sortAscending) {
-                           rows.sort(function(a, b) { return b[d] < a[d]; });
-                           sortAscending = false;
-                           this.className = 'aes';
-                           d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
-                           d3.selectAll("tr").filter(":nth-child(odd)").attr("class", null);
-
-
-                           } else {
-                         rows.sort(function(a, b) { return b[d] > a[d]; });
-                         sortAscending = true;
-                         this.className = 'des';
-                           d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
-                           d3.selectAll("tr").filter(":nth-child(odd)").attr("class", null);
-                         }
-                           
-                         });
-        
-      var rows = table.append('tbody').selectAll('tr')
-                      .data(data).enter()
-                      .append('tr');
-      rows.selectAll('td')
-      .data(function (d) {
-        return titles.map(function (k) {
-        return { 'value': d[k], 'name': k};
-        });
-      }).enter()
-        .append('td')
-        .attr('data-th', function (d) {
-          return d.name;
-        })
-        .text(function (d) {
-          return d.value;
-        });
-
-        d3.selectAll("tr").filter(":nth-child(even)").attr("class", "even");
-
-      };
-
-function drawTable(data_src) {
-  d3.csv(data_src, function(d) {
-    d['Total VIBe Products Sold'] = +d['Total VIBe Products Sold']; 
-    return d;
-  }, table);
+  }
 }
