@@ -50,7 +50,7 @@ function grouped_bar(args) {
 
   var x1 = d3.scale.ordinal();
 
-  if (args.yscale == "log") {
+  if (args.scale == "log") {
     var y = d3.scale.log()
               .range([height, 0]);
   } else {
