@@ -136,7 +136,6 @@ function grouped_bar(element, data, grouping) {
             divTooltip.style("display", "inline-block");
             var x = d3.event.pageX, y = d3.event.pageY;
             var elements = document.querySelectorAll(':hover');
-            debugger;
             l = elements.length
             l = l-1
             elementData = elements[l].__data__
