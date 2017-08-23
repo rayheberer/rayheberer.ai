@@ -41,7 +41,7 @@ function group_by_category(data, category) {
 
 function grouped_bar(element, data, grouping) {
 
-  var margin = {top: 30, right: 50, bottom: 90, left: 50},
+  var margin = {top: 30, right: 50, bottom: 30, left: 30},
       width = 800 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
 
