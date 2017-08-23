@@ -39,7 +39,7 @@ function group_by_category(data, category) {
 
 // =======================================================
 
-function grouped_bar(element, data, grouping) {
+function grouped_bar(args) {
 
   var margin = {top: 30, right: 50, bottom: 30, left: 30},
       width = 800 - margin.left - margin.right,
@@ -70,7 +70,7 @@ function grouped_bar(element, data, grouping) {
   var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
 
 
-  var svg = d3.select(element).append("svg")
+  var svg = d3.select(args.element).append("svg")
       .attr("width", "100%")
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -84,10 +84,10 @@ function grouped_bar(element, data, grouping) {
     width: width,
 
 
-    f: d3.json(data, function(data) {
+    f: d3.json(args.data, function(data) {
 
     data = date_range(data, "2017-06-01", "2017-07-01");
-    data = group_by_category(data, grouping);
+    data = group_by_category(data, args.grouping);
 
     var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
 
