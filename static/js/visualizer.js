@@ -50,8 +50,14 @@ function grouped_bar(args) {
 
   var x1 = d3.scale.ordinal();
 
-  var y = d3.scale.log()
-      .range([height, 0]);
+  if (args.yscale == "log") {
+    var y = d3.scale.log()
+              .range([height, 0]);
+  } else {
+    var y = d3.scale.linear()
+              .range([height, 0]);
+  }
+
 
   var colorRange = d3.scale.category20();
   var color = d3.scale.ordinal()
