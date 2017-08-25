@@ -202,19 +202,17 @@ function grouped_bar(args) {
         .attr("height", function(d) { return height - y(d.value); })
         .style("fill", function(d) { return color(d.name); });
 
-    bar.on("mouseover", function() {
-      d3.select(this).attr("fill", "black");
-        });
-
     bar.on("mousemove", function(d){
             divTooltip.style("left", d3.event.pageX+10+"px");
             divTooltip.style("top", d3.event.pageY-25+"px");
             divTooltip.style("display", "inline-block");
             var x = d3.event.pageX, y = d3.event.pageY;
             var elements = document.querySelectorAll(':hover');
-            l = elements.length
-            l = l-1
+            l = elements.length;
+            l = l-1;
             elementData = elements[l].__data__
+            elementData.style("fill", "black");
+            console.log("Hi!");
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
         });
 
