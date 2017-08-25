@@ -195,13 +195,17 @@ function grouped_bar(args) {
     var bars = bar.selectAll("rect")
                   .data(function(d) { return d.values; })
                   .enter().append("rect")
-                  
+
     bars.attr("width", x1.rangeBand())
         .attr("x", function(d) { return x1(d.name); })
         .attr("y", function(d) { return y(d.value); })
         .attr("value", function(d){return d.name;})
         .attr("height", function(d) { return height - y(d.value); })
-        .style("fill", function(d) { return color(d.name); });
+        .style("fill", function(d) { return color(d.name); })
+        .on("mouseover", function() {
+          d3.select(this)
+            .attr("fill", "red");
+        });
 
     bar.on("mousemove", function(d){
             divTooltip.style("left", d3.event.pageX+10+"px");
