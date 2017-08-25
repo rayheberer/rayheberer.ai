@@ -73,7 +73,7 @@ function group_by_category(data, category, metrics) {
         category: d.key,
         vibes: d.values.vibes,
         ivibes: d.values.ivibes,
-        vibes_per_ivibe: d.values.vibes / d.values.ivibes
+        vibes_per_ivibe: Math.round10(d.values.vibes / d.values.ivibes, -2)
       });
     } else {
       grouped.push({
