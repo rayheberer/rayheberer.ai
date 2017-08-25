@@ -199,7 +199,10 @@ function grouped_bar(args) {
         .attr("y", function(d) { return y(d.value); })
         .attr("value", function(d){return d.name;})
         .attr("height", function(d) { return height - y(d.value); })
-        .style("fill", function(d) { return color(d.name); });
+        .style("fill", function(d) { return color(d.name); })
+        .on("mouseover", function() {
+          d3.select(this).attr("fill", "red");
+        });
 
     bar
         .on("mousemove", function(d){
@@ -212,7 +215,6 @@ function grouped_bar(args) {
             l = l-1
             elementData = elements[l].__data__
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
-            elements.style("fill", "black");
         });
     bar
         .on("mouseout", function(d){
