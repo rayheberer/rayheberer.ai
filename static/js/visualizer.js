@@ -189,7 +189,7 @@ function grouped_bar(args) {
         .data(data)
         .enter().append("g")
         .attr("class", "rect")
-        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
+        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",100)"; });
 
 
     var bars = bar.selectAll("rect")
@@ -221,11 +221,10 @@ function grouped_bar(args) {
             l = l-1;
             elementData = elements[l].__data__
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
-        });
-
-    bar.on("mouseout", function(){
+       });
+       .on("mouseout", function(){
             divTooltip.style("display", "none");
-        });
+       });
 
     var legend = svg.selectAll(".legend")
         .data(options.slice())
