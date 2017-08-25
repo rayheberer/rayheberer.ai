@@ -136,7 +136,7 @@ function grouped_bar(args) {
   var yAxis = d3.svg.axis()
       .scale(y)
       .orient("left")
-      .tickValues([1, 10, 100, 1000, 10000])
+      .tickValues([1, 10, 100, 1000])
       .tickFormat(d3.format(".1s"));
 
   var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
