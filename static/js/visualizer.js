@@ -201,7 +201,7 @@ function grouped_bar(args) {
         .attr("y", function(d) { return y(d.value); })
         .attr("value", function(d){return d.name;})
         .attr("height", function(d) { return height - y(d.value); })
-        .style("fill", function(d) { return color(d.name); })
+        .attr("fill", function(d) { return color(d.name); })
         .on("mouseover", function() {
           d3.select(this)
             .attr("fill", "red");
