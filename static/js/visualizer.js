@@ -1,3 +1,38 @@
+function tabulate(data, columns) {
+    var table = d3.select("#container").append("table"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+            .text(function(column) { return column; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+            .text(function(d) { return d.value; });
+    
+    return table;
+}
+
+
+// ============================================
 function date_range(data, start, end) {
   start = new Date(start);
   end = new Date(end);
@@ -10,28 +45,43 @@ function date_range(data, start, end) {
   return data;
 }
 
-function group_by_category(data, category) {
+function group_by_category(data, category, metrics) {
   var nested =  d3.nest().key(function(d) {return d[category];})
                   .rollup(function(v) {
-                    var ivibes = d3.set();
-                    v.forEach(function(d) {
-                      ivibes.add(d['ivib_id']);
-                    });
+                    var return_dict = {};
 
-                    return {
-                      vibes: v.length,
-                      ivibes: ivibes.values().length
+                    if (metrics.indexOf("vibes") != -1) {
+                      return_dict.vibes = v.length;
                     };
+
+                    if (metrics.indexOf("ivibes") != -1) {
+                      var ivibes = d3.set();
+                      v.forEach(function(d) {
+                        ivibes.add(d['ivib_id']);
+                      });
+                      return_dict.ivibes = ivibes.values().length;
+                    };
+
+                    return return_dict;
                   })
                   .entries(data)
 
   var grouped = [];
   nested.forEach(function(d) {
-    grouped.push({
-      category: d.key,
-      vibes: d.values.vibes,
-      ivibes: d.values.ivibes
-    });
+    if (metrics.indexOf("vibes_per_ivibe") != -1) {
+      grouped.push({
+        category: d.key,
+        vibes: d.values.vibes,
+        ivibes: d.values.ivibes,
+        vibes_per_ivibe: d.values.vibes / d.values.ivibes
+      });
+    } else {
+      grouped.push({
+        category: d.key,
+        vibes: d.values.vibes,
+        ivibes: d.values.ivibes
+      });
+    };
   });
 
   return grouped;
@@ -92,8 +142,8 @@ function grouped_bar(args) {
 
     f: d3.json(args.data, function(data) {
 
-    data = date_range(data, "2017-06-01", "2017-07-01");
-    data = group_by_category(data, args.grouping);
+    data = date_range(data, "2017-07-01", "2017-08-01");
+    data = group_by_category(data, args.grouping, ["vibes", "ivibes"]);
 
     var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
 
