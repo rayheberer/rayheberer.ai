@@ -189,7 +189,10 @@ function grouped_bar(args) {
         .data(data)
         .enter().append("g")
         .attr("class", "rect")
-        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
+        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; })
+        .on("mouseover", function() {
+          d3.select(this).attr("fill", "red");
+        });
 
     bar.selectAll("rect")
         .data(function(d) { return d.values; })
@@ -199,10 +202,7 @@ function grouped_bar(args) {
         .attr("y", function(d) { return y(d.value); })
         .attr("value", function(d){return d.name;})
         .attr("height", function(d) { return height - y(d.value); })
-        .style("fill", function(d) { return color(d.name); })
-        .on("mouseover", function() {
-          d3.select(this).attr("fill", "red");
-        });
+        .style("fill", function(d) { return color(d.name); });
 
     bar
         .on("mousemove", function(d){
