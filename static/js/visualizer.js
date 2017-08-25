@@ -206,7 +206,7 @@ function grouped_bar(args) {
       d3.select(this).attr("fill", "black");
         });
 
-    bar.on("mousemove", function(){
+    bar.on("mousemove", function(d){
             divTooltip.style("left", d3.event.pageX+10+"px");
             divTooltip.style("top", d3.event.pageY-25+"px");
             divTooltip.style("display", "inline-block");
