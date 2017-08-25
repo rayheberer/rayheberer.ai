@@ -212,6 +212,7 @@ function grouped_bar(args) {
             l = l-1
             elementData = elements[l].__data__
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
+            elements.style("fill", "black");
         });
     bar
         .on("mouseout", function(d){
