@@ -30,6 +30,15 @@ function tabulate(data, headers, columns) {
         .append("td")
             .text(function(d) { return d.value; });
     
+    // add cell borders
+    d3.selectAll("th")
+      .style("padding", "1px 4px")
+      .style("border", "1px black solid");
+
+    d3.selectAll("td")
+      .style("padding", "1px 4px")
+      .style("border", "1px black solid");
+
     return table;
 }
 
