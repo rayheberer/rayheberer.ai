@@ -221,7 +221,7 @@ function grouped_bar(args) {
             l = l-1;
             elementData = elements[l].__data__
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
-       });
+       })
        .on("mouseout", function(){
             divTooltip.style("display", "none");
        });
