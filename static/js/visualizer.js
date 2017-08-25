@@ -194,7 +194,7 @@ function grouped_bar(args) {
 
     var bars = bar.selectAll("rect")
                   .data(function(d) { return d.values; })
-                  .enter().append("rect")
+                  .enter().append("rect");
 
     bars.attr("width", x1.rangeBand())
         .attr("x", function(d) { return x1(d.name); })
