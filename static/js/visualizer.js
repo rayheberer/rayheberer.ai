@@ -19,6 +19,10 @@ function tabulate(data, headers, columns) {
         .enter()
         .append("tr");
 
+    d3.selectAll("thead").data(data).on("click", function(k) {
+    rows.sort(function(a, b) { return b - a; });
+    });
+
     // create a cell in each row for each column
     var cells = rows.selectAll("td")
         .data(function(row) {
