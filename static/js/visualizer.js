@@ -189,10 +189,8 @@ function grouped_bar(args) {
         .data(data)
         .enter().append("g")
         .attr("class", "rect")
-        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; })
-        .on("mouseover", function() {
-          d3.select(this).attr("fill", "red");
-        });
+        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
+
 
     bar.selectAll("rect")
         .data(function(d) { return d.values; })
@@ -204,8 +202,11 @@ function grouped_bar(args) {
         .attr("height", function(d) { return height - y(d.value); })
         .style("fill", function(d) { return color(d.name); });
 
-    bar
-        .on("mousemove", function(d){
+    bar.on("mouseover", function() {
+      d3.select(this).attr("fill", "black");
+        });
+
+    bar.on("mousemove", function(){
             divTooltip.style("left", d3.event.pageX+10+"px");
             divTooltip.style("top", d3.event.pageY-25+"px");
             divTooltip.style("display", "inline-block");
@@ -216,11 +217,10 @@ function grouped_bar(args) {
             elementData = elements[l].__data__
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
         });
-    bar
-        .on("mouseout", function(d){
+
+    bar.on("mouseout", function(){
             divTooltip.style("display", "none");
         });
-
 
     var legend = svg.selectAll(".legend")
         .data(options.slice())
