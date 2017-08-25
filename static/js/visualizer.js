@@ -173,7 +173,7 @@ function grouped_bar(args) {
 
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ", 30)")
+        .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
     svg.append("g")
@@ -230,7 +230,7 @@ function grouped_bar(args) {
         .data(options.slice())
         .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("transform", function(d, i) { return "translate(0," + i * 40 + ")"; });
 
     legend.append("rect")
         .attr("x", width - 18)
