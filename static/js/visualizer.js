@@ -118,7 +118,7 @@ function grouped_bar(args) {
 
   if (args.scale == "log") {
     var y = d3.scale.log()
-              .range([height, 0]);
+              .range([height, 30]);
   } else {
     var y = d3.scale.linear()
               .range([height, 0]);
