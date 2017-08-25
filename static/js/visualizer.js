@@ -192,10 +192,11 @@ function grouped_bar(args) {
         .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
 
 
-    bar.selectAll("rect")
-        .data(function(d) { return d.values; })
-        .enter().append("rect")
-        .attr("width", x1.rangeBand())
+    var bars = bar.selectAll("rect")
+                  .data(function(d) { return d.values; })
+                  .enter().append("rect")
+                  
+    bars.attr("width", x1.rangeBand())
         .attr("x", function(d) { return x1(d.name); })
         .attr("y", function(d) { return y(d.value); })
         .attr("value", function(d){return d.name;})
@@ -211,8 +212,6 @@ function grouped_bar(args) {
             l = elements.length;
             l = l-1;
             elementData = elements[l].__data__
-            elementData.style("fill", "black");
-            console.log("Hi!");
             divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
         });
 
