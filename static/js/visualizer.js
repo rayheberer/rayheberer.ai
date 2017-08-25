@@ -205,6 +205,10 @@ function grouped_bar(args) {
         .on("mouseover", function() {
           d3.select(this)
             .attr("fill", "red");
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+            .attr("fill", function(d) { return color(d.name); });
         });
 
     bar.on("mousemove", function(d){
