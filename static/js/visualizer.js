@@ -1,7 +1,6 @@
 function tabulate(data, headers, columns) {
     var table = d3.select("body").append("table")
-            .attr("style", "margin-left: 200px")
-            .style("border-collapse", "collapse")         // <= Add this line in.
+            .style("border-collapse", "collapse") 
             .style("border", "2px black solid"),
         thead = table.append("thead"),
         tbody = table.append("tbody");
