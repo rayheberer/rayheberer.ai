@@ -15,7 +15,7 @@ function tabulate(data, headers, columns) {
 
     // sort rows
     d3.selectAll("thead").data(data).on("click", function(k) {
-      rows.sort(function(a, b) { return b - a; });
+      tr.sort(function(a, b) { return b - a; });
     });
 
     // create a row for each object in the data
