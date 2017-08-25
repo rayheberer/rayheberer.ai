@@ -13,15 +13,16 @@ function tabulate(data, headers, columns) {
         .append("th")
             .text(function(column) { return column; });
 
+    // sort rows
+    d3.selectAll("thead").data(data).on("click", function(k) {
+      rows.sort(function(a, b) { return b - a; });
+    });
+
     // create a row for each object in the data
     var rows = tbody.selectAll("tr")
         .data(data)
         .enter()
         .append("tr");
-
-    d3.selectAll("thead").data(data).on("click", function(k) {
-    rows.sort(function(a, b) { return b - a; });
-    });
 
     // create a cell in each row for each column
     var cells = rows.selectAll("td")
