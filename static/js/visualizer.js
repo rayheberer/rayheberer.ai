@@ -1,12 +1,15 @@
-function tabulate(data, columns) {
-    var table = d3.select("#container").append("table"),
+function tabulate(data, headers, columns) {
+    var table = d3.select("body").append("table")
+            .attr("style", "margin-left: 200px")
+            .style("border-collapse", "collapse")         // <= Add this line in.
+            .style("border", "2px black solid"),
         thead = table.append("thead"),
         tbody = table.append("tbody");
 
     // append the header row
     thead.append("tr")
         .selectAll("th")
-        .data(columns)
+        .data(headers)
         .enter()
         .append("th")
             .text(function(column) { return column; });
