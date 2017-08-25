@@ -109,7 +109,7 @@ function grouped_bar(args) {
 
   var margin = {top: 30, right: 50, bottom: 30, left: 30},
       width = 800 - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+      height = 350 - margin.top - margin.bottom;
 
   var x0 = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
@@ -118,10 +118,10 @@ function grouped_bar(args) {
 
   if (args.scale == "log") {
     var y = d3.scale.log()
-              .range([height, 30]);
+              .range([height, 40]);
   } else {
     var y = d3.scale.linear()
-              .range([height, 0]);
+              .range([height, 40]);
   }
 
 
