@@ -204,7 +204,7 @@ function grouped_bar(args) {
         .attr("fill", function(d) { return color(d.name); })
         .on("mouseover", function() {
           d3.select(this)
-            .attr("fill", "rgba(255, 255, 255, 0.8)");
+            .attr("fill", "rgba(0, 0, 0, 0.8)");
         })
         .on("mouseout", function() {
           d3.select(this)
