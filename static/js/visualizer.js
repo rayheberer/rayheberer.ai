@@ -169,7 +169,7 @@ function grouped_bar(args) {
 
     x0.domain(data.map(function(d) { return d.category; }));
     x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
-    y.domain([0, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
+    y.domain([1, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
 
     svg.append("g")
         .attr("class", "x axis")
