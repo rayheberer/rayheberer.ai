@@ -189,7 +189,7 @@ function grouped_bar(args) {
         .data(data)
         .enter().append("g")
         .attr("class", "rect")
-        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",100)"; });
+        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
 
 
     var bars = bar.selectAll("rect")
