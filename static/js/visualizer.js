@@ -1,3 +1,65 @@
+function get_metric(data,  metric) {
+  if (metric == "vibes") {
+    return data.length;
+  } else if (metric == "ivibes") {
+    var ivibes = d3.set();
+    data.forEach(function(d) {
+      ivibes.add(d['ivib_id']);
+    });
+    return ivibes.values().length;
+  };
+}
+
+function scorecard(args) {
+  return d3.json(args.data, function(data) {
+    var past_data = date_range(data, "2017-06-01", "2017-07-01")
+    var current_data = date_range(data, "2017-07-01", "2017-08-01")
+
+    if (args.metric == "vibes_per_ivibe") {
+      var metric = Math.round(get_metric(current_data, "vibes")/get_metric(current_data, "ivibes")*100)/100;
+      var past_metric = Math.round(get_metric(past_data, "vibes")/get_metric(past_data, "ivibes")*100)/100;
+      var title = "Average VIBes per iVIBe";
+    } else {
+      var metric = get_metric(current_data, args.metric);
+      var past_metric = get_metric(past_data, args.metric);
+      var title = "VIBes";
+      if (args.metric == "ivibes") {title = "iVIBes"};
+    }
+
+    var diff = (metric - past_metric)/past_metric;
+    var diff_class = "diff" + args.metric
+    var return_string = "<span class='white-text'>" + title + "</span>" + "<h2 class='white-text'>" + d3.format(".2s")(metric)
+                        + "</h2>" + "<span class='" + diff_class + "'>" + d3.format("+.1%")(diff) + "</span>";
+      
+    var scorecard = d3.select(args.element)
+                      .append("div");
+
+    scorecard.html(return_string)
+             .style("padding", "10 30 10 10")
+             .style("display", "inline-block")
+             .style("border-radius", "5px")
+             .style("background-color", "rgba(70, 92, 110, 0.8)")
+             .style("font-family", "sans-serif");
+
+    d3.selectAll(".white-text")
+      .style("color", "white")
+      .style("margin", "0");
+
+
+    if (diff > 0) {
+      d3.select("." + diff_class)
+        .style("color", "palegreen");
+        
+    } else {
+      d3.select("." + diff_class)
+        .style("color", "salmon");
+
+    };
+
+    });
+}
+
+
 function tabulate(data, headers, columns) {
     var table = d3.select("body").append("table")
             .style("border-collapse", "collapse") 
@@ -48,7 +110,6 @@ function tabulate(data, headers, columns) {
 }
 
 
-// ============================================
 function date_range(data, start, end) {
   start = new Date(start);
   end = new Date(end);
@@ -102,8 +163,6 @@ function group_by_category(data, category, metrics) {
 
   return grouped;
 }
-
-// =======================================================
 
 function grouped_bar(args) {
 
