@@ -152,7 +152,7 @@ function scorecard(args) {
              .style("font-family", "sans-serif");
 
     if (scorecard.node().getBoundingClientRect().width < 90) {
-      scorecard.style("width", "90");
+      scorecard.style("width", "90px");
     };
 
     d3.selectAll(".white-text")
@@ -168,7 +168,6 @@ function scorecard(args) {
     } else {
       d3.select("." + diff_class)
         .style("color", "salmon");
-
     };
 
     });
