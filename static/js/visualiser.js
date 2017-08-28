@@ -145,7 +145,7 @@ function scorecard(args) {
                       .attr("class", "scorecard");
 
     scorecard.html(return_string)
-             .style("padding", "10 30 10 10")
+             .style("padding", "10px 30px 10px 10px")
              .style("display", "inline-block")
              .style("border-radius", "5px")
              .style("background-color", "rgba(70, 92, 110, 0.8)")
