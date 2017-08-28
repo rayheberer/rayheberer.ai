@@ -157,7 +157,8 @@ function scorecard(args) {
 
     d3.selectAll(".white-text")
       .style("color", "white")
-      .style("margin", "0");
+      .style("margin", "0")
+      .style("padding", "0");
 
 
     if (diff > 0) {
