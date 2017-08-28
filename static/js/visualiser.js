@@ -294,9 +294,19 @@ function group_by_category(data, category, metrics) {
 
 function grouped_bar(args) {
 
-  var margin = {top: 30, right: 50, bottom: 30, left: 30},
-      width = 800 - margin.left - margin.right,
-      height = 350 - margin.top - margin.bottom;
+  var margin = {top: 30, right: 50, bottom: 30, left: 30}
+
+  if (args.height == null) {
+    var height = 350 - margin.top - margin.bottom;
+  } else {
+    var height = args.height - margin.top - margin.bottom;
+  };
+
+  if (args.width == null) {
+    var width = 800 - margin.left - margin.right;
+  } else {
+    var width = args.width - margin.left - margin.right;
+  }
 
   var x0 = d3.scale.ordinal()
       .rangeRoundBands([0, width], .1);
