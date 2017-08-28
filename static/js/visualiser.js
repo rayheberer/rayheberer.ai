@@ -1,3 +1,68 @@
+function geo_heatmap(args) {
+  var h = 450,
+      w = 750;
+  // set-up unit projection and path
+  var projection = d3.geo.mercator()
+      .scale(1)
+      .translate([0, 0]);
+  var path = d3.geo.path()
+      .projection(projection);
+  // set-up svg canvas
+  var svg = d3.select(args.element).append("svg")
+      .attr("height", h)
+      .attr("width", w);
+
+  d3.json("countries.geo.json", function(error, countrydata) {
+    d3.json(args.data, function(error, data) {
+      data = group_by_category(data, "country", ["vibes"]);
+
+      var world = countrydata.features;
+      // color scale for data, starting from 0, ending at max
+      var color = d3.scale.linear()
+                    .range(["white", "blue"])
+                    .domain([0, +d3.max(data)['vibes']])
+
+      // calculate bounds, scale and transform 
+      // see http://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object
+      var b = path.bounds(countrydata),
+          s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h),
+          t = [(w - s * (b[1][0] + b[0][0])) / 2.5, (h - s * (b[1][1] + b[0][1])) / 1.3];
+      projection.scale(s+30)
+          .translate(t);
+      svg.selectAll("path")
+          .data(world).enter()
+          .append("path")
+          .style("fill", getColor)
+          .style("stroke", "grey")
+          .style("stroke-width", "1px")
+          .attr("d", path)
+          .on("mouseover", handleMouseOver)
+          .on("mouseout", handleMouseOut);
+
+      // color in countries
+      function getColor(countrydata) {
+        var value = 0;
+        data.forEach(function(d, i) {
+          if(countrydata.properties.name == d.category) {
+            value = +d.vibes;
+            return;
+          };
+        });
+        console.log(value);
+        return color(value);
+      }
+
+      function handleMouseOver(d, i) {
+          d3.select(this).style("stroke-width", "1.8px");
+      }
+
+      function handleMouseOut(d, i) {
+          d3.select(this).style("stroke-width", "1px");
+      }
+    });
+  });
+}
+
 function get_metric(data,  metric) {
   if (metric == "vibes") {
     return data.length;
