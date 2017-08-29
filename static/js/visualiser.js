@@ -208,11 +208,11 @@ function tabulate(data, element, headers, columns) {
     // add cell borders
     d3.selectAll("th")
       .style("padding", "1px 4px")
-      .style("border", "1px black solid");
+      .style("border", "1px silver solid");
 
     d3.selectAll("td")
       .style("padding", "1px 4px")
-      .style("border", "1px black solid");
+      .style("border", "1px silver solid");
 
     return table;
 }
