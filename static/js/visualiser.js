@@ -84,10 +84,10 @@ function vibe_services_table(args) {
     var headers = ["VIBe Category", "VIBes", "iVIBes","Average VIBes per iVIBe"];
     var columns = ["category", "vibes", "ivibes", "vibes_per_ivibe"];
     
-    var colors = {category: "white",
-                  vibes: "lightblue",
-                  ivibes: "lightgreen",
-                  vibes_per_ivibe: "lightyellow"}
+    var colors = {category: args.background,
+                  vibes: "rgba(45, 80, 108,",
+                  ivibes: "rgba(56, 113, 58,",
+                  vibes_per_ivibe: "rgba(165, 119, 12,"}
 
     var table = tabulate(data, args.element, headers, columns);
 
@@ -98,12 +98,11 @@ function vibe_services_table(args) {
         values.push(d.__data__.value);
       });
       
-      var color = d3.scale.linear()
-                    .range(["white", args.colors[c]])
+      var alpha = d3.scale.linear()
+                    .range([0, 1])
                     .domain([0, d3.max(values)]);
-
       column.style("background-color", function(d) {
-        return color(d.value); 
+        return (colors[c] + alpha(d.value) + ")"); 
       });
     });
   });
