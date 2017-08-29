@@ -354,102 +354,109 @@ function grouped_bar(args) {
 
     f: d3.json(args.data, function(data) {
     
-    if (args.start_date == null | args.end_date) {
-      var dates = default_date_bounds();
-      var start_date = dates.start,
-          end_date = dates.end;
-    } else {
-      var start_date = args.start_date,
-          end_date = args.end_date;
-    };
+      if (args.start_date == null | args.end_date) {
+        var dates = default_date_bounds();
+        var start_date = dates.start,
+            end_date = dates.end;
+      } else {
+        var start_date = args.start_date,
+            end_date = args.end_date;
+      };
 
-    data = date_range(data, start_date, end_date);
-    data = group_by_category(data, args.grouping, ["vibes", "ivibes"]);
+      data = date_range(data, start_date, end_date);
+      data = group_by_category(data, args.grouping, ["vibes", "ivibes"]);
 
-    var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
+      var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
 
-    data.forEach(function(d) {
-        d.values = options.map(function(name) { return {name: name, value: +d[name]}; });
-    });
+      data.forEach(function(d) {
+          d.values = options.map(function(name) { return {name: name, value: +d[name]}; });
+      });
 
-    x0.domain(data.map(function(d) { return d.category; }));
-    x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
-    y.domain([1, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
+      x0.domain(data.map(function(d) { return d.category; }));
+      x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
+      y.domain([1, d3.max(data, function(d) { return d3.max(d.values, function(d) { return d.value; }); })]);
 
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
 
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end");
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end");
 
-    var bar = svg.selectAll(".bar")
-        .data(data)
-        .enter().append("g")
-        .attr("class", "rect")
-        .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
+      var bar = svg.selectAll(".bar")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "rect")
+          .attr("transform", function(d) { return "translate(" + x0(d.category) + ",0)"; });
 
 
-    var bars = bar.selectAll("rect")
-                  .data(function(d) { return d.values; })
-                  .enter().append("rect");
+      var bars = bar.selectAll("rect")
+                    .data(function(d) { return d.values; })
+                    .enter().append("rect");
 
-    bars.attr("width", x1.rangeBand())
-        .attr("x", function(d) { return x1(d.name); })
-        .attr("y", function(d) { return y(d.value); })
-        .attr("value", function(d){return d.name;})
-        .attr("height", function(d) { return height - y(d.value); })
-        .attr("fill", function(d) { return color(d.name); })
-        .on("mouseover", function() {
-          d3.select(this)
-            .attr("fill", "rgba(70, 70, 70, 0.8)");
-        })
-        .on("mouseout", function() {
-          d3.select(this)
-            .attr("fill", function(d) { return color(d.name); });
-        });
+      bars.attr("width", x1.rangeBand())
+          .attr("x", function(d) { return x1(d.name); })
+          .attr("y", function(d) { return y(d.value); })
+          .attr("value", function(d){return d.name;})
+          .attr("height", function(d) { return height - y(d.value); })
+          .attr("fill", function(d) { return color(d.name); })
+          .on("mouseover", function() {
+            d3.select(this)
+              .attr("fill", "rgba(70, 70, 70, 0.8)");
+          })
+          .on("mouseout", function() {
+            d3.select(this)
+              .attr("fill", function(d) { return color(d.name); });
+          });
 
-    bar.on("mousemove", function(d){
-            divTooltip.style("left", d3.event.pageX+10+"px");
-            divTooltip.style("top", d3.event.pageY-25+"px");
-            divTooltip.style("display", "inline-block");
-            var x = d3.event.pageX, y = d3.event.pageY;
-            var elements = document.querySelectorAll(':hover');
-            l = elements.length;
-            l = l-1;
-            elementData = elements[l].__data__
-            divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
-       })
-       .on("mouseout", function(){
-            divTooltip.style("display", "none");
-       });
+      bar.on("mousemove", function(d){
+              divTooltip.style("left", d3.event.pageX+10+"px");
+              divTooltip.style("top", d3.event.pageY-25+"px");
+              divTooltip.style("display", "inline-block");
+              var x = d3.event.pageX, y = d3.event.pageY;
+              var elements = document.querySelectorAll(':hover');
+              l = elements.length;
+              l = l-1;
+              elementData = elements[l].__data__
+              divTooltip.html((d.category)+"<br>"+elementData.name+"<br>"+elementData.value);
+         })
+         .on("mouseout", function(){
+              divTooltip.style("display", "none");
+         });
 
-    var legend = svg.selectAll(".legend")
-        .data(options.slice())
-        .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      var legend = svg.selectAll(".legend")
+          .data(options.slice())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-    legend.append("rect")
-        .attr("x", width - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
+      legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
 
-    legend.append("text")
-        .attr("x", width - 24)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return d; });
-  })
+      legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function(d) { return d; }); 
+
+      var title = svg.append("g")
+                     .attr("class", "title")
+                     .append("text")
+                     .attr("x", width / 2)
+                     .attr("y", 0)
+                     .text(args.title);
+    })
   }
 }
 
