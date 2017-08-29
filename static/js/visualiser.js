@@ -174,8 +174,7 @@ function scorecard(args) {
 
 function tabulate(data, element, headers, columns) {
     var table = d3.select(element).append("table")
-            .style("border-collapse", "collapse") 
-            .style("background-color", "rgba(25, 25, 25, 0.5)");
+            .style("border-collapse", "collapse");
         thead = table.append("thead"),
         tbody = table.append("tbody");
 
