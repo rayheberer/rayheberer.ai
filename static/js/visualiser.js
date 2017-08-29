@@ -84,7 +84,7 @@ function vibe_services_table(args) {
     var headers = ["VIBe Category", "VIBes", "iVIBes","Average VIBes per iVIBe"];
     var columns = ["category", "vibes", "ivibes", "vibes_per_ivibe"];
     
-    var colors = {category: args.background,
+    var colors = {category: null,
                   vibes: "rgba(45, 80, 108,",
                   ivibes: "rgba(56, 113, 58,",
                   vibes_per_ivibe: "rgba(165, 119, 12,"}
