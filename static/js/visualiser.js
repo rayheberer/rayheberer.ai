@@ -453,7 +453,7 @@ function grouped_bar(args) {
       var title = svg.append("g")
                      .attr("class", "title")
                      .append("text")
-                     .attr("x", (width / 2) - 30)
+                     .attr("x", (width * 0.4))
                      .attr("y", 9)
                      .text(args.title);
     })
