@@ -42,7 +42,6 @@ function loader(config) {
   };
 }
 
-
 function default_date_bounds() {
   var end = new Date();
 

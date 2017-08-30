@@ -1,4 +1,4 @@
-function geo_heatmap(args) {
+function geo_heatmap(data, container, config) {
   var h = 450,
       w = 750;
   // set-up unit projection and path
@@ -8,21 +8,21 @@ function geo_heatmap(args) {
   var path = d3.geo.path()
       .projection(projection);
   // set-up svg canvas
-  var svg = d3.select(args.element).append("svg")
+  var svg = d3.select(container).append("svg")
       .attr("height", h)
       .attr("width", w);
 
-  d3.json(args.geo_data, function(error, countrydata) {
-    var data = group_by_category(args.data, "country", ["vibes"]);
+  d3.json(config.geo_data, function(error, countrydata) {
+    data = group_by_category(data, "country", ["vibes"]);
 
     var world = countrydata.features;
     // color scale for data, starting from 0, ending at max
 
-    if (args.color == null) {
-      args.color = "blue"
+    if (config.color == null) {
+      config.color = "blue"
     }
     var color = d3.scale.linear()
-                  .range(["white", args.color])
+                  .range(["white", config.color])
                   .domain([0, +d3.max(data, function(d) { return d.vibes; })])
 
     // calculate bounds, scale and transform 
@@ -64,20 +64,20 @@ function geo_heatmap(args) {
   });
 }
 
-function grouped_bar(args) {
+function grouped_bar(data, container, config) {
 
   var margin = {top: 30, right: 50, bottom: 30, left: 30}
 
-  if (args.height == null) {
+  if (config.height == null) {
     var height = 350 - margin.top - margin.bottom;
   } else {
-    var height = args.height - margin.top - margin.bottom;
+    var height = config.height - margin.top - margin.bottom;
   };
 
-  if (args.width == null) {
+  if (config.width == null) {
     var width = 800 - margin.left - margin.right;
   } else {
-    var width = args.width - margin.left - margin.right;
+    var width = config.width - margin.left - margin.right;
   }
 
   var x0 = d3.scale.ordinal()
@@ -85,7 +85,7 @@ function grouped_bar(args) {
 
   var x1 = d3.scale.ordinal();
 
-  if (args.scale == "log") {
+  if (config.scale == "log") {
     var y = d3.scale.log()
               .range([height, 40]);
   } else {
@@ -111,22 +111,22 @@ function grouped_bar(args) {
   var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
 
 
-  var svg = d3.select(args.element).append("svg")
+  var svg = d3.select(container).append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  if (args.start_date == null | args.end_date) {
+  if (config.start_date == null | config.end_date) {
     var dates = default_date_bounds();
     var start_date = dates.start,
         end_date = dates.end;
   } else {
-    var start_date = args.start_date,
-        end_date = args.end_date;
+    var start_date = config.start_date,
+        end_date = config.end_date;
   }
 
-  var data = group_by_category(args.data, args.grouping, ["vibes", "ivibes"]);
+  var data = group_by_category(data, config.grouping, ["vibes", "ivibes"]);
 
   var options = d3.keys(data[0]).filter(function(key) { return key !== "category"; });
 
@@ -218,11 +218,11 @@ function grouped_bar(args) {
                  .attr("x", (width * 0.5))
                  .attr("y", 9)
                  .style("text-anchor", "middle")
-                 .text(args.title);
+                 .text(config.title);
     
 }
 
-function grouped_bar_line(args) {
+function grouped_bar_line(data, container, config) {
 
   var margin = {top: 30, right: 50, bottom: 30, left: 30},
       width = 800 - margin.left - margin.right,
@@ -259,27 +259,27 @@ function grouped_bar_line(args) {
 
   var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
 
-  var svg = d3.select(args.element).append("svg")
+  var svg = d3.select(container).append("svg")
       .attr("width", "100%")
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var data = group_by_category(args.data, "vib_event_date", ["vibes", "ivibes", "vibes_per_ivibe"]);
+  data = group_by_category(data, "vib_event_date", ["vibes", "ivibes", "vibes_per_ivibe"]);
       
-      var bardata = [],
-          linedata = []
-      data.forEach(function(d) {
-        bardata.push({
-          category: d.category,
-          vibes: d.vibes,
-          ivibes: d.ivibes
-        })
-        linedata.push({
-          category: d.category,
-          vibes_per_ivibe: d.vibes_per_ivibe
-        })
-      })
+  var bardata = [],
+      linedata = []
+  data.forEach(function(d) {
+    bardata.push({
+      category: d.category,
+      vibes: d.vibes,
+      ivibes: d.ivibes
+    })
+    linedata.push({
+      category: d.category,
+      vibes_per_ivibe: d.vibes_per_ivibe
+    })
+  })
 
   var options = d3.keys(bardata[0]).filter(function(key) { return key !== "category"; });
 
@@ -388,8 +388,8 @@ function grouped_bar_line(args) {
       .text(function(d) { return d; });
 }
 
-function vibe_services_table(args) {
-  var data = group_by_category(args.data, "vib_category", ["vibes", "ivibes", "vibes_per_ivibe"]);
+function vibe_services_table(data, container, config) {
+  data = group_by_category(data, "vib_category", ["vibes", "ivibes", "vibes_per_ivibe"]);
   // draw table body with rows
   var headers = ["VIBe Category", "VIBes", "iVIBes","Average VIBes per iVIBe"];
   var columns = ["category", "vibes", "ivibes", "vibes_per_ivibe"];
@@ -399,7 +399,7 @@ function vibe_services_table(args) {
                 ivibes: "rgba(56, 113, 58,",
                 vibes_per_ivibe: "rgba(165, 119, 12,"}
 
-  var table = tabulate(data, args.element, headers, columns);
+  var table = tabulate(data, container, headers, columns);
 
   columns.forEach(function(c) {
     var column = table.selectAll("." + c);
@@ -417,37 +417,37 @@ function vibe_services_table(args) {
   });
 } 
 
-function scorecard(args) {
-  if (args.start_date == null | args.end_date == null) {
+function scorecard(data, container, config) {
+  if (config.start_date == null | config.end_date == null) {
     var dates = default_date_bounds();
     var start_date = dates.start,
         end_date = dates.end;
   } else {
-    var start_date = args.start_date,
-        end_date = args.end_date;
+    var start_date = config.start_date,
+        end_date = config.end_date;
   };
   
   var past_start_date = new Date(start_date - (end_date - start_date));
-  var current_data = date_range(args.data, start_date, end_date),
-      past_data = date_range(args.data, past_start_date, start_date);
+  var current_data = date_range(data, start_date, end_date),
+      past_data = date_range(data, past_start_date, start_date);
 
-  if (args.metric == "vibes_per_ivibe") {
+  if (config.metric == "vibes_per_ivibe") {
     var metric = Math.round(get_metric(current_data, "vibes")/get_metric(current_data, "ivibes")*100)/100;
     var past_metric = Math.round(get_metric(past_data, "vibes")/get_metric(past_data, "ivibes")*100)/100;
     var title = "Average VIBes per iVIBe";
   } else {
-    var metric = get_metric(current_data, args.metric);
-    var past_metric = get_metric(past_data, args.metric);
+    var metric = get_metric(current_data, config.metric);
+    var past_metric = get_metric(past_data, config.metric);
     var title = "VIBes";
-    if (args.metric == "ivibes") {title = "iVIBes"};
+    if (config.metric == "ivibes") {title = "iVIBes"};
   }
 
   var diff = (metric - past_metric)/past_metric;
-  var diff_class = "diff" + args.metric
+  var diff_class = "diff" + config.metric
   var return_string = "<span class='white-text'>" + title + "</span>" + "<h2 class='white-text'>" + d3.format(".2s")(metric)
                       + "</h2>" + "<span class='" + diff_class + "'>" + d3.format("+.1%")(diff) + "</span>";
     
-  var scorecard = d3.select(args.element)
+  var scorecard = d3.select(container)
                     .append("div")
                     .attr("class", "scorecard");
 
