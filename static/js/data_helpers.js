@@ -1,39 +1,47 @@
-function load_progress(data_src, element, total) {
-  var width = 50,
-    height = 50,
-    twoPi = 2 * Math.PI,
-    progress = 0,
-    formatPercent = d3.format(".0%");
-  var arc = d3.svg.arc()
-      .startAngle(0)
-      .innerRadius(15)
-      .outerRadius(20);
-  var svg = d3.select(element).append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("class", "loading")
-    .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  var meter = svg.append("g")
-      .attr("class", "progress-meter");
-  meter.append("path")
-      .attr("class", "background")
-      .attr("d", arc.endAngle(twoPi))
-      .style("fill", "#ccc");
-  var foreground = meter.append("path")
-      .attr("class", "foreground")
-      .style("fill", "#000");
-
+function loader(config) {
   return function() {
-          var i = d3.interpolate(progress, d3.event.loaded / total);
-                d3.transition().tween("progress", function() {
-                  return function(t) {
-                    progress = i(t);
-                    foreground.attr("d", arc.endAngle(twoPi * progress));
-                  };
-                });
-      };
+    var radius = Math.min(config.width, config.height) / 2;
+    var tau = 2 * Math.PI;
+
+    var arc = d3.svg.arc()
+            .innerRadius(radius*0.5)
+            .outerRadius(radius*0.9)
+            .startAngle(0);
+
+    var svg = d3.select(config.container).append("svg")
+        .attr("id", config.id)
+        .attr("width", config.width)
+        .attr("height", config.height)
+      .append("g")
+        .attr("transform", "translate(" + config.width / 2 + "," + config.height / 2 + ")")
+
+    var background = svg.append("path")
+            .datum({endAngle: 0.33*tau})
+            .style("fill", "#4D4D4D")
+            .attr("d", arc)
+            .call(spin, 500)
+
+    function spin(selection, duration) {
+        selection.transition()
+            .ease("linear")
+            .duration(duration)
+            .attrTween("transform", function() {
+                return d3.interpolateString("rotate(0)", "rotate(360)");
+            });
+
+        setTimeout(function() { spin(selection, duration); }, duration);
+    }
+
+    function transitionFunction(path) {
+        path.transition()
+            .duration(7500)
+            .attrTween("stroke-dasharray", tweenDash)
+            .each("end", function() { d3.select(this).call(transition); });
+    }
+
+  };
 }
+
 
 function default_date_bounds() {
   var end = new Date();
