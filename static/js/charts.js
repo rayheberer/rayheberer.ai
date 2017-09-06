@@ -389,9 +389,8 @@ function grouped_bar_line(data, container, config) {
 }
 
 function vibe_services_table(data, container, config) {
-  data = group_by_category(data, "vib_category", ["vibes", "ivibes", "vibes_per_ivibe"]);
+  data = group_by_category(data, config.grouping, ["vibes", "ivibes", "vibes_per_ivibe"]);
   // draw table body with rows
-  var headers = ["VIBe Category", "VIBes", "iVIBes","Average VIBes per iVIBe"];
   var columns = ["category", "vibes", "ivibes", "vibes_per_ivibe"];
   
   var colors = {category: null,
@@ -399,22 +398,8 @@ function vibe_services_table(data, container, config) {
                 ivibes: "rgba(56, 113, 58,",
                 vibes_per_ivibe: "rgba(165, 119, 12,"}
 
-  var table = tabulate(data, container, headers, columns);
-
-  columns.forEach(function(c) {
-    var column = table.selectAll("." + c);
-    var values = [];
-    column[0].forEach(function(d) {
-      values.push(d.__data__.value);
-    });
-    
-    var alpha = d3.scale.linear()
-                  .range([0, 1])
-                  .domain([0, d3.max(values)]);
-    column.style("background-color", function(d) {
-      return (colors[c] + alpha(d.value) + ")"); 
-    });
-  });
+  var table = tabulate(data, container, config.headers, columns);
+  color_table_background(table, columns, colors);
 } 
 
 function scorecard(data, container, config) {

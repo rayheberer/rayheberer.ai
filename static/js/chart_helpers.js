@@ -42,3 +42,19 @@ function tabulate(data, element, headers, columns) {
     return table;
 }
 
+function color_table_background(table, columns, colors) {
+    columns.forEach(function(c) {
+    var column = table.selectAll("." + c);
+    var values = [];
+    column[0].forEach(function(d) {
+      values.push(d.__data__.value);
+    });
+    
+    var alpha = d3.scale.linear()
+                  .range([0, 1])
+                  .domain([0, d3.max(values)]);
+    column.style("background-color", function(d) {
+      return (colors[c] + alpha(d.value) + ")"); 
+    });
+  });
+}
