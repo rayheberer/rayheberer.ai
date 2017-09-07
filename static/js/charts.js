@@ -390,6 +390,7 @@ function grouped_bar_line(data, container, config) {
 
 function vibe_services_table(data, container, config) {
   data = group_by_category(data, config.grouping, ["vibes", "ivibes", "vibes_per_ivibe"]);
+  data = sort_by_value(data, "vibes");
   // draw table body with rows
   var columns = ["category", "vibes", "ivibes", "vibes_per_ivibe"];
   
