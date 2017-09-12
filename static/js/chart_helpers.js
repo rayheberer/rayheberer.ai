@@ -1,5 +1,5 @@
-function tabulate(data, element, headers, columns) {
-    var table = d3.select(element).append("table")
+function tabulate(data, container, headers, columns) {
+    var table = d3.select(container).append("table")
             .style("border-collapse", "collapse");
         thead = table.append("thead"),
         tbody = table.append("tbody");

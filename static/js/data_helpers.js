@@ -135,7 +135,6 @@ function get_metric(data,  metric) {
 
 function sort_by_value(object, key) {
   var sorted = object.sort(function(a, b) {
-    console.log(a);
     return d3.descending(a[key], b[key]);
   });
   return sorted;

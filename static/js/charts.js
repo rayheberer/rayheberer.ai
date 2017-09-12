@@ -12,10 +12,9 @@ function geo_heatmap(data, container, config) {
       .attr("height", h)
       .attr("width", w);
 
-  d3.json(config.geo_data, function(error, countrydata) {
     data = group_by_category(data, "country", ["vibes"]);
 
-    var world = countrydata.features;
+    var world = config.geo_data.features;
     // color scale for data, starting from 0, ending at max
 
     if (config.color == null) {
@@ -27,7 +26,7 @@ function geo_heatmap(data, container, config) {
 
     // calculate bounds, scale and transform 
     // see http://stackoverflow.com/questions/14492284/center-a-map-in-d3-given-a-geojson-object
-    var b = path.bounds(countrydata),
+    var b = path.bounds(config.geo_data),
         s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h),
         t = [(w - s * (b[1][0] + b[0][0])) / 2.5, (h - s * (b[1][1] + b[0][1])) / 1.3];
     projection.scale(s+30)
@@ -61,7 +60,6 @@ function geo_heatmap(data, container, config) {
     function handleMouseOut(d, i) {
         d3.select(this).style("stroke-width", "1px");
     }
-  });
 }
 
 function grouped_bar(data, container, config) {
