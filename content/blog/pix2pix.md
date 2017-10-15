@@ -13,7 +13,7 @@ highlight: true
 
 ---
 
-This post can also be found on !(Medium)[https://medium.com/@rayheberer/training-a-tensorflow-pix2pix-cgan-on-floydhub-to-generate-body-transformations-2e550e287804].
+For the best reading experience, find this post on [Medium](https://medium.com/@rayheberer/training-a-tensorflow-pix2pix-cgan-on-floydhub-to-generate-body-transformations-2e550e287804).
 
 Being able to visualize results can be a powerful form of motivation and preparation. However, in the fitness domain, it can be difficult for one to imagine what results in terms of appearance might look like for them individually. How then might we bring people closer to their ideal bodies, and help them feel less distant from their goals, as well as their progress?
 This was the question that I, along with two extremely talented engineers, set out to solve during the roughly 48-hour long [Fitness & Health Burda Hackday](http://burdahackday.de/) in Munich on the weekend of October 7th. Our idea: to dream up pictures that might plausibly resemble someone in the future should they adopt a lifestyle of healthy eating and exercise, using conditional generative adversarial networks.
