@@ -41,7 +41,7 @@ Some popular adversarial network architectures are:
 
 For a comprehensive set of resources regarding GANs, I recommend Holger Caesar's [really-awesome-gan](https://github.com/nightrome/really-awesome-gan) list.
 
-![](https://rayheberer.netlify.com/img/pix2pix/pix2pix.png "How the Discriminator is optimized in a cGAN")
+![](https://rayheberer.netlify.com/img/pix2pix/pix2pix.png "How the Discriminator and Generator are optimized in a cGAN")
 ---
 We chose to use a conditional GAN, or cGAN, to learn the mapping between male adults shown in "body transformation" marketing images. A [Tensorflow implementation](https://github.com/affinelayer/pix2pix-tensorflow) exists that very faithfully ports the code the authors of the [cGAN paper](https://arxiv.org/pdf/1611.07004v1.pdf) wrote in Torch.
 
