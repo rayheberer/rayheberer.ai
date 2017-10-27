@@ -20,14 +20,6 @@
 
 		<h1>Megan & Ray's Hug Counter</h1>
 
-    <?php
-    	if (isset($_POST['megan'])) {
-    		echo '<div style="border:1px solid #fc0; padding:10px;margin-top:25px;">';
-    		echo 'The values returned were:  '.implode(', ',array_values($_POST));
-    		echo '</div>';
-    	}
-    ?>
-
     <form method="post" action="">
       <div class="numbers-row">
         <label for="name">Megan</label>
