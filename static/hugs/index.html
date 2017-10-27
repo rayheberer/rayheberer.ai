@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Hug Counter</title>
+
+	<link rel="stylesheet" href="css/style.css">
+
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script src="js/incrementing.js"></script>
+
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+		<h1>Megan & Ray's Hug Counter</h1>
+
+    <?php
+    	if (isset($_POST['megan'])) {
+    		echo '<div style="border:1px solid #fc0; padding:10px;margin-top:25px;">';
+    		echo 'The values returned were:  '.implode(', ',array_values($_POST));
+    		echo '</div>';
+    	}
+    ?>
+
+    <form method="post" action="">
+      <div class="numbers-row">
+        <label for="name">Megan</label>
+        <input type="text" name="megan" id="megan" value="0">
+      </div>
+      <div class="numbers-row">
+        <label for="name">Ray</label>
+        <input type="text" name="ray" id="ray" value="0">
+      </div>
+    </form>
+
+	</div>
+
+</body>
+
+</html>
