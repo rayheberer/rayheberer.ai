@@ -11,7 +11,7 @@ theme = "hugo-sustain"
   post = "/:year/:month/:day/:slug"
 
 [params]
-  avatar = "/img/profile.jpg"
+  avatar = "/img/profile-122017.jpg"
   author = "Ray Heberer"
   description = "Dreams of a wild neural network"
 
