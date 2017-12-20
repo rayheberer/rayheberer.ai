@@ -21,6 +21,7 @@ theme = "hugo-sustain"
 
 [params.social]
   Github        = "rayheberer"
+  LinkedIn      = "/in/rayheberer"
   Email         = "ray.heberer@gmail.com"
 
 ## Main Menu
