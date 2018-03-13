@@ -53,16 +53,6 @@
         </h2>
       </header>
 
-      <article class="ui inverted segment">
-        {{ if (file_exists( "/content/about/desc.md")) }}
-        {{ readFile "/content/about/desc.md" | markdownify | emojify }}
-        {{ else }}
-        {{ range $.Site.Data.about.desc }}
-          <p>{{ . | safeHTML | emojify }}</p>
-        {{ end }}
-        {{ end }}
-      </article>
-
       {{ if .Site.Copyright }}
       <footer class="ui secondary segment">
         {{ .Site.Copyright | safeHTML }}
