@@ -4,7 +4,7 @@
     {{ block "header" . -}}{{- end }}
 	</head>
     <body {{- if .Site.Params.themeColor }} class="{{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}" {{ end }}>
-        {{ partial "sidebar.html" . }}
+        {{ partial "sidebar_menu.html" . }}
         <div class="content container">
             {{ block "content" . }}{{ end }}
             <div class="footer">
