@@ -54,7 +54,7 @@
       </header>
 
       <article class="ui inverted segment">
-        {{ if (fileExists "/content/about/desc.md") }}
+        {{ if (file_exists( "/content/about/desc.md")) }}
         {{ readFile "/content/about/desc.md" | markdownify | emojify }}
         {{ else }}
         {{ range $.Site.Data.about.desc }}
