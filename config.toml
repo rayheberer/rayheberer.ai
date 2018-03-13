@@ -1,25 +1,23 @@
-baseurl = "https://rayheberer.ai"
-languageCode = "en"
-defaultContentLanguage = "en"
+baseurl = "http://www.rayheberer.ai"
+languageCode = "en-US"
 title = "Ray Heberer"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "rayheberer-netlify-com"
+# Enable Google Analytics by entering your tracking code
+# googleAnalytics = ""
 theme = "hugo-theme-dream"
 
-copyright = "Copyright (c) 2018, Ray Heberer; all rights reserved."
-
-# enableRobotsTXT = true
-
-# googleAnalytics = ""
-
-# disqusShortname = ""
+[permalinks]
+  post = "/:year/:month/:day/:slug"
 
 [params]
-  author = "Author"
   motto = "Motto"
-  # description = ""
-  # avatar = ""
-  
-  # email = ""
-  # github = ""
-  # linkedin = ""
+  avatar = "/img/profile-122017.jpg"
+  author = "Ray Heberer"
+  description = "Dreams of a wild neural network"
+
+  email = "ray.heberer@gmail.com"
+  github = "https://github.com/rayheberer/"
+  linkedin = "https://www.linkedin.com/in/rayheberer"
   # codepen = ""
   # stackoverflow = ""
