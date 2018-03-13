@@ -5,7 +5,7 @@ title = "Ray Heberer"
 disqusShortname = "rayheberer-netlify-com"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
-theme = "hugo-sustain"
+theme = "dream"
 
 [permalinks]
   post = "/:year/:month/:day/:slug"
