@@ -9,7 +9,7 @@ highlight: true
 
 ### Introduction
 
-It feel strange to just begin writing a blog post as if it's something I've always been doing. As someone who enjoys working with computers and code, there's a little habit that is nagging at me... An itch that requires scratching. So why fight it? Here goes:
+It would feel strange to just begin writing a blog post as if it's something I've always been doing. As someone who enjoys working with computers and code, there's a little habit that is nagging at me... An itch that requires scratching. So why fight it? Here goes:
 
 ```
 print("Hello World!")
