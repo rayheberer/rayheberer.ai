@@ -40,5 +40,5 @@ paginate = 5
 	url = "about"
 	
 	[[params.navlinks]]
-	name = "Blog"
-	url = ""
+	name = "My Music"
+	url = "https://soundcloud.com/rayheberer4"
