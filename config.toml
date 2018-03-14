@@ -28,17 +28,16 @@ paginate = 5
 	[[params.socialbuttons]]
 	faicon = "github"
 	url = "https://github.com/rayheberer"
-	[[params.socialbuttons]]
-	faicon = "twitter"
-	url = "https://twitter.com/rayheberer4"
+	#[[params.socialbuttons]]
+	#faicon = "twitter"
+	#url = "https://twitter.com/rayheberer4"
 	[[params.socialbuttons]]
 	faicon = "linkedin"
 	url = "https://linkedin.com/in/rayheberer"
+	[[params.socialbuttons]]
+	faicon = "instagram"
+	url = "https://www.instagram.com/ray_heberer/"
 
 	[[params.navlinks]]
 	name = "About"
 	url = "about"
-	
-	[[params.navlinks]]
-	name = "My Music"
-	url = "https://soundcloud.com/rayheberer4"
