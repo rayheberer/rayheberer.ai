@@ -11,4 +11,4 @@ If I may speak for myself, I ask questions always in the hope of learning that s
 
 Oh, and if you were looking for my professional or academic history instead of my personality traits, click on one of those social medial links or check out [my CV](https://rayheberer.github.io/)
 
-Cheers to you, friend.
+*Tsuyoku Naritai!*
