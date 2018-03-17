@@ -26,6 +26,7 @@ In this post, I will briefly outline GANs for those who are unfamiliar with them
 ---
 
 Generative Adversarial Networks were first proposed by Ian Goodfellow and others in Yoshua Bengio's Montreal lab in 2014, and have received much attention since then, with Yann LeCun calling them:
+
 > ...the most interesting idea in the last 10 years in ML, in my opinion.
 
 For an overview of generative models in general, which are unsupervised learning techniques that seek to learn the distribution of some data (e.g. words in a corpus or pixels in images of cats), I would highly recommend [OpenAI's blog post](https://blog.openai.com/generative-models/) on the topic.
