@@ -31,11 +31,12 @@ Generative Adversarial Networks were first proposed by Ian Goodfellow and others
 
 For an overview of generative models in general, which are unsupervised learning techniques that seek to learn the distribution of some data (e.g. words in a corpus or pixels in images of cats), I would highly recommend [OpenAI's blog post](https://blog.openai.com/generative-models/) on the topic.
 
-Briefly, GANs consist of two networks with opposing objectives, seeking an equilibrium in a sort of game being played between them. The "Generator" transforms some input that is sampled from what is called the "latent space"???-???often times this is a vector with components sampled from some probability distribution???-???into the output space that contains what it is that we desire to generate (for example the space of 32x32 RGB images). The "Discriminator" is simply a classifier that receives both outputs from the Generator, and real objects, then is trained to determine whether the input it is observing is generated, or real.
+Briefly, GANs consist of two networks with opposing objectives, seeking an equilibrium in a sort of game being played between them. The "Generator" transforms some input that is sampled from what is called the "latent space" - often times this is a vector with components sampled from some probability distribution - into the output space that contains what it is that we desire to generate (for example the space of 32x32 RGB images). The "Discriminator" is simply a classifier that receives both outputs from the Generator, and real objects, then is trained to determine whether the input it is observing is generated, or real.
 
 The idea is that when both networks are performing optimally, the Generator creates images that are distributed within their respective output space in the same way that real inputs to the Discriminator are.
 
 Some popular adversarial network architectures are:
+
 * [Deep Convolutional GANs](https://github.com/Newmu/dcgan_code), that perhaps unsurprisingly are used to generate realistic images.
 * [Conditional GANs](https://phillipi.github.io/pix2pix/), that learn the distribution of output images **given paired** inputs for applications such as image-to-image translation
 * [Cycle-Consistent GANs](https://junyanz.github.io/CycleGAN/), which can learn image-to-image mappings without requiring paired inputs.
