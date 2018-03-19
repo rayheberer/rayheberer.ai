@@ -4,7 +4,7 @@ date: 2017-07-09
 linktitle: My Cape Town iXperience
 title: My Cape Town iXperience
 tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
-highlight: true
+highlight: false
 ---
 ![](/img/devils-peak.jpg)
 *Devil's Peak.*
