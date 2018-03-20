@@ -23,6 +23,8 @@ This discussion is in a sense a long-form response to an exercise question posed
 
 ### Background
 
+![](/img/ai-competitions/imagenet.jpg)
+
 These days, with platforms such as [Kaggle](http://kaggle.com/) and [DrivenData](https://www.drivendata.org/), competitions inviting people to innovate technical solutions to science and engineering problems are no longer just an exclusive activity for researchers. Discussing Kaggle competitions and their benefits and downsides for participants, corporations, the research community and others is a matter of great depth in itself. I will not be adding to this dialogue, save to observe that these sorts of "commercial" competitions often center themselves around new use cases that can be adequately solved with current ideas, and thus tend to correspond to a useful outcome, but do not inspire research or expose holes in current understanding.
 
 I will be focusing on competitions that are designed and organized for the furtherment of AI and machine learning research. For a starter on thinking critically about Kaggle (in the specific light of how it can benefit beginner practitioners), I recommend reading [this article](https://hackernoon.com/no-kaggle-is-unsuitable-to-study-ai-ml-a-reply-to-ben-hamner-27283878cede), then looking back to what it was written in response to if you find it interesting. In any case, I think that the growth of competition platforms has shown that competitions meant to drive innovation can be brought to a wider community, and just because not many of the competitions are research-oriented at the moment, does not mean they cannot or will not be many going forward.
@@ -40,6 +42,8 @@ The machine learning community, perhaps more so than other research communities,
 ---
 
 ### Examples
+
+![](/img/ai-competitions/face-recognition.jpg)
 
 In what follows, I will briefly overview a small selection of machine learning competitions, their aims, and what sort of results have emerged from them. I have sampled these from the broad divisions one often learns of when being introduced to machine learning - supervised learning, unsupervised learning, and reinforcement learning. I do this not because I think these terms represent anything on a fundamental level, or because I truly think the competitions can be completely characterized by them, but rather because I think that these somewhat loose categories are good anchor points for one confronting the question of what they are interested in. 
 
