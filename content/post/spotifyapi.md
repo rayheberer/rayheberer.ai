@@ -198,19 +198,19 @@ ggplot(features.df, aes(x = mode)) + geom_bar() + theme_minimal()
 ggplot(features.df, aes(x = key)) + geom_bar() + theme_minimal()
 ```
 
-![](https://www.rayheberer.ai/img/Danceability.png)
+![](/img/Danceability.png)
 
 
-![](https://www.rayheberer.ai/img/Energy.png)
+![](/img/Energy.png)
 
 
-![](https://www.rayheberer.ai/img/Valence.png)
+![](/img/Valence.png)
 
 
-![](https://www.rayheberer.ai/img/Mode.png)
+![](/img/Mode.png)
 
 
-![](https://www.rayheberer.ai/img/Key.png)
+![](/img/Key.png)
 
 
 Already, I have a number of options to explore:

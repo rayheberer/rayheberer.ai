@@ -7,7 +7,7 @@ tags: ["AI", "Machine Learning", "Competitions"]
 highlight: false
 ---
 
-![](https://www.rayheberer.ai/img/ai-competitions/real-steel.jpg)
+![](/img/ai-competitions/real-steel.jpg)
 
 Define some objective, then let a population of algorithms compete against one another, mixing and refining characteristics of the most successful of their predecessors, and occasionally introducing novel approaches. I'm speaking, of course, of machine learning competitions. They are rather ubiquitous in today's research and commercial environment, but what are they good for, and what should one know about them? I'm here to ask some of these questions, and maybe produce a few answers along the way.
 
