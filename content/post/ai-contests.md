@@ -17,6 +17,8 @@ Now, it seems fairly obvious to say that competitors will show improving results
 
 This discussion is in a sense a long-form response to an exercise question posed by Peter Norvig and Stuart Russell in their seminal text, [Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu/). I will borrow from their ideas, and from many other pre-eminent figures in AI and machine learning. In what follows, I wish to briefly touch upon some historical competitions and their impact, then sample a handful of present-day competitions, and finally synthesize some of my own reactions and thoughts to what I have learned. Of course, I welcome any insights, objections, or comments from each reader.
 
+---
+
 ### Background
 
 These days, with platforms such as [Kaggle](http://kaggle.com/) and [DrivenData](https://www.drivendata.org/), competitions inviting people to innovate technical solutions to science and engineering problems are no longer just an exclusive activity for researchers. Discussing Kaggle competitions and their benefits and downsides for participants, corporations, the research community and others is a matter of great depth in itself. I will not be adding to this dialogue, save to observe that these sorts of "commercial" competitions often center themselves around new use cases that can be adequately solved with current ideas, and thus tend to correspond to a useful outcome, but do not inspire research or expose holes in current understanding.
@@ -33,9 +35,13 @@ ILSVRC ran for the last time in 2017. By then, it's objective (accuracy/top-5 ac
 
 The machine learning community, perhaps more so than other research communities, is remarkably conscious about the fact that  datasets will become stale with time. This is likely in part due to the fact that in working with machine learning algorithms, overfitting and allowing held-out data to bleed into training data through hyperparameter adjustment is a daily reality. Though competitions are slightly different things from benchmark datasets, they can be thought of in the same way especially if they use a persistent dataset. I am optimistic about the machine learning community and its ability to move on from competitions that are no longer useful or relevant.
 
+---
+
 ### Examples
 
 In what follows, I will briefly overview a small selection of machine learning competitions, their aims, and what sort of results have emerged from them. I have sampled these from the broad divisions one often learns of when being introduced to machine learning - supervised learning, unsupervised learning, and reinforcement learning. I do this not because I think these terms represent anything on a fundamental level, or because I truly think the competitions can be completely characterized by them, but rather because I think that these somewhat loose categories are good anchor points for one confronting the question of what they are interested in. With such a thought in mind, I encourage you to investigate the competitions that catch your attention, and more importantly the bodies of knowledge underlying each. Let curiosity be your guide!
+
+---
 
 #### [NIST Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt-ongoing)
 
@@ -44,6 +50,8 @@ The FRVT began in February 2017, and currently only has one track  - face verifi
 Large scale facial recognition is beginning to generate large amounts of commercial interest. It should not be too surprising that many of the teams on the NIST leaderboard are from China. There are numerous articles discussing the state of Chinese facial recognition, and the sources of their advantage, such as larger datasets and fewer privacy restrictions, but [here is one](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.7d10e93aee14) from the Washington Post to get you started. Andrew Ng also dedicates a section of his course to face recognition (here's a [lecture on siamese networks](https://www.coursera.org/learn/convolutional-neural-networks/lecture/bjhmj/siamese-network)). So it is clear that the NIST challenge is relevant to current interests.
 
 What is less clear is whether the challenge will have much influence in driving progress. Many of those competing for the top ranks in the competition are either funded startups, or companies with face recognition products in development. This shows that interest in face recognition was already significant when the competition began. However, one should not overlook to the potential benefit of providing these startups and labs a platform to compete with each other. Also, since many of the competitors are for-profit corporations, their researchers will be unlikely to lose sight of the real-world applications of what maximizing the competition's objective will enable.
+
+---
 
 #### [Hutter Prize](http://prize.hutter1.net/)
 
@@ -57,6 +65,8 @@ The leaderboard for this prize is rather lonely. [Alexander Rhatushnyak](https:/
 
 As interest in unsupervised and representation learning grows (it is one of [Yoshua Bengio's](http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html) research topics, if that motivates anyone to also be interested), I anticipate that information theory and data compression might be studied by practitioners the same way that linear algebra and calculus now are. In my opinion, the Hutter Prize has generated less interest than it has the potential to - maybe people disagree with the correspondence between compression and intelligence, or maybe progress in compression algorithms is not being documented and findings disemminated in a way that those in the machine learning talent pool are encouraged to give it a try - but this also means that it is probably not narrowing the focus of researchers and directing them away from exploring other avenues of discovery. It is a competition that is so far not living up to its promise, but also not acting as a danger or distraction. 
 
+---
+
 #### [General Video Game AI Competition](http://www.gvgai.net/)
 
 GVG-AI has been hosted at various conferences since 2014, and is sponsored by [DeepMind](https://deepmind.com), consistent with the idea of using games as a testing ground for developing AGI as is their *modus operandi*. There are multiple tracks - in 2018: Single Player Planning, 2-Player Planning, Rule Generation, and Level Generation.
@@ -64,6 +74,8 @@ GVG-AI has been hosted at various conferences since 2014, and is sponsored by [D
 The competition has spurred a respectable amount of research papers, with [18 listed](http://www.gvgai.net/papers.php) on the site itself, and over 130 results to a Google Scholar query of "GVGAI". While I cannot be completely certain, it seems like there is a large amateur or at least non-researcher population on the leaderboard. The UK and Germany have a strong showing, with many teams being afiliated with these nations.
 
 GVG-AI is an instance of a competition which aims to draw in research talent. It openly promotes the University of Essex's [MSc on Computer Games](http://csee.essex.ac.uk/games/) and the [Centre for Intelligent Games and Game Intelligence PhD Program](http://www.iggi.org.uk/). People studying aspects of AI tend to agree that games are useful, partly because they provide a way to relax some of the difficulties of real-life: partial observability, stochasticity, many-agents... However, there are a spectrum of opinions on how difficult it will be to bridge the gap, with some people emphasizing the need to test in more general environments more than others. The interview excerpts in the last few paragraphs of [this article](https://www.theguardian.com/global/2017/mar/14/googles-deepmind-makes-ai-program-that-can-learn-like-a-human) illustrate this nicely.
+
+---
 
 ### Discussion
 
