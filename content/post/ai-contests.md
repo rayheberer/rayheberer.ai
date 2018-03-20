@@ -43,9 +43,9 @@ In what follows, I will briefly overview a small selection of machine learning c
 
 ---
 
-#### [NIST Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt-ongoing)
+#### NIST Face Recognition Vendor Test
 
-The FRVT began in February 2017, and currently only has one track  - face verification. In the latest [FRVT report](https://www.nist.gov/sites/default/files/documents/2018/02/15/frvt_report_2018_02_15.pdf), the results from 54 algorithms were reported. Currently, the leaderboard is topped by [Megvii](https://megvii.com/), also known as Face++, a Chinese facial recognition startup. Also on the leaderboard are other startups such as [VisionLabs](https://visionlabs.ai/), larger corporations like [Toshiba](https://www.toshiba.co.jp/sis/en/scd/face/face.htm), and a team from Fudan University.
+The [FRVT](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt-ongoing) began in February 2017, and currently only has one track  - face verification. In the latest [FRVT report](https://www.nist.gov/sites/default/files/documents/2018/02/15/frvt_report_2018_02_15.pdf), the results from 54 algorithms were reported. Currently, the leaderboard is topped by [Megvii](https://megvii.com/), also known as Face++, a Chinese facial recognition startup. Also on the leaderboard are other startups such as [VisionLabs](https://visionlabs.ai/), larger corporations like [Toshiba](https://www.toshiba.co.jp/sis/en/scd/face/face.htm), and a team from Fudan University.
 
 Large scale facial recognition is beginning to generate large amounts of commercial interest. It should not be too surprising that many of the teams on the NIST leaderboard are from China. There are numerous articles discussing the state of Chinese facial recognition, and the sources of their advantage, such as larger datasets and fewer privacy restrictions, but [here is one](https://www.washingtonpost.com/news/world/wp/2018/01/07/feature/in-china-facial-recognition-is-sharp-end-of-a-drive-for-total-surveillance/?utm_term=.7d10e93aee14) from the Washington Post to get you started. Andrew Ng also dedicates a section of his course to face recognition (here's a [lecture on siamese networks](https://www.coursera.org/learn/convolutional-neural-networks/lecture/bjhmj/siamese-network)). So it is clear that the NIST challenge is relevant to current interests.
 
@@ -53,9 +53,9 @@ What is less clear is whether the challenge will have much influence in driving 
 
 ---
 
-#### [Hutter Prize](http://prize.hutter1.net/)
+#### Hutter Prize
 
-The Hutter Prize, or the 50'000€ Prize for Compressing Human Knowledge, is not so much a periodic competition, as a standing challenge. I include it as the competition that bears relation to unsupervised learning, but really it is an extremely open sort of endeavor. Their objective, the compression of [100MB of Wikipedia knowledge](http://mattmahoney.net/dc/textdata.html), is straightforward to measure, and founded on the assumption that better compression and decompression algorithms will be a path to Artificial General Intelligence. In their words:
+[The Hutter Prize](http://prize.hutter1.net/), or the 50'000€ Prize for Compressing Human Knowledge, is not so much a periodic competition, as a standing challenge. I include it as the competition that bears relation to unsupervised learning, but really it is an extremely open sort of endeavor. Their objective, the compression of [100MB of Wikipedia knowledge](http://mattmahoney.net/dc/textdata.html), is straightforward to measure, and founded on the assumption that better compression and decompression algorithms will be a path to Artificial General Intelligence. In their words:
 
 >  If you can compress the first 100MB of Wikipedia better than your predecessors, your (de)compressor likely has to be smart(er).
 
@@ -67,9 +67,9 @@ As interest in unsupervised and representation learning grows (it is one of [Yos
 
 ---
 
-#### [General Video Game AI Competition](http://www.gvgai.net/)
+#### General Video Game AI Competition
 
-GVG-AI has been hosted at various conferences since 2014, and is sponsored by [DeepMind](https://deepmind.com), consistent with the idea of using games as a testing ground for developing AGI as is their *modus operandi*. There are multiple tracks - in 2018: Single Player Planning, 2-Player Planning, Rule Generation, and Level Generation.
+[GVG-AI](http://www.gvgai.net/) has been hosted at various conferences since 2014, and is sponsored by [DeepMind](https://deepmind.com), consistent with the idea of using games as a testing ground for developing AGI as is their *modus operandi*. There are multiple tracks - in 2018: Single Player Planning, 2-Player Planning, Rule Generation, and Level Generation.
 
 The competition has spurred a respectable amount of research papers, with [18 listed](http://www.gvgai.net/papers.php) on the site itself, and over 130 results to a Google Scholar query of "GVGAI". While I cannot be completely certain, it seems like there is a large amateur or at least non-researcher population on the leaderboard. The UK and Germany have a strong showing, with many teams being afiliated with these nations.
 
