@@ -9,7 +9,7 @@ highlight: false
 
 ---
 
-![](https://rayheberer.netlify.com/img/pix2pix/dreamfit.jpeg "Adithya Saladi, Sachin Bakshi, and myself receiving a Challenge Prize for our digital stay-smoke-free support project: Lung Beat. Our 2nd-Place Prize winning project, DreamFit, is the subject of this article.")
+![](https://rayheberer.ai/img/pix2pix/dreamfit.jpeg "Adithya Saladi, Sachin Bakshi, and myself receiving a Challenge Prize for our digital stay-smoke-free support project: Lung Beat. Our 2nd-Place Prize winning project, DreamFit, is the subject of this article.")
 
 ---
 
@@ -43,7 +43,7 @@ Some popular adversarial network architectures are:
 
 For a comprehensive set of resources regarding GANs, I recommend Holger Caesar's [really-awesome-gan](https://github.com/nightrome/really-awesome-gan) list.
 
-![](https://rayheberer.netlify.com/img/pix2pix/pix2pix.png "How the Discriminator and Generator are optimized in a cGAN")
+![](https://rayheberer.ai/img/pix2pix/pix2pix.png "How the Discriminator and Generator are optimized in a cGAN")
 ---
 We chose to use a conditional GAN, or cGAN, to learn the mapping between male adults shown in "body transformation" marketing images. A [Tensorflow implementation](https://github.com/affinelayer/pix2pix-tensorflow) exists that very faithfully ports the code the authors of the [cGAN paper](https://arxiv.org/pdf/1611.07004v1.pdf) wrote in Torch.
 
@@ -73,13 +73,13 @@ Affinelayer's pix2pix implementation was made in Tensorflow 1.0.0, which means t
 
 Also, instead of restoring from a single `.ckpt` file, the model saves a number of files to the output directory specified during training, which can be then chosen as a checkpoint directory during testing or exporting.
 
-![](https://rayheberer.netlify.com/img/pix2pix/floydoutput.png "Checkpoints saved to /output during pix2pix training.")
+![](https://rayheberer.ai/img/pix2pix/floydoutput.png "Checkpoints saved to /output during pix2pix training.")
 ---
 Why might this be an issue when training on a distributed computing platform? Well, because in lines 625 and 725 of [pix2pix.py](https://github.com/affinelayer/pix2pix-tensorflow/blob/master/pix2pix.py), the argument to the saver is recovered using ` tf.train.latest_checkpoint(a.checkpoint)`, which will yield an absolute path of `/output` on FloydHub.
 
 Since the checkpoint directory of one job on FloydHub can't be mounted to `/output` in a subsequent job, as that directory will be reserved, an error will be thrown when attempting to restore the model.
 
-![](https://rayheberer.netlify.com/img/pix2pix/pix2pixerror.png "I became far too familiar with this.")
+![](https://rayheberer.ai/img/pix2pix/pix2pixerror.png "I became far too familiar with this.")
 ---
 The workaround fix is incredibly simple. For a more involved project, I would recommend adding an additional parameter that can be set in a command, but for a weekend, simple changing lines 625 and 725 of pix2pix.py would be enough.
 
@@ -98,9 +98,9 @@ I employed two [standard](http://cs231n.github.io/convnet-tips/) forms of data a
 
 I'll leave below our best generalization results on new data, as well as comparisons between how a model trained without data augmentation for the same amount of wall-clock time performed relative to the model trained with augmented data. Keep in mind that training the models overnight during the hackathon may not have been enough time for them to fully converge, but the results were fascinating.
 
-![](https://rayheberer.netlify.com/img/pix2pix/beforeafter.png "I gave myself a horrifying, low-resolution 8-pack over the weekend. What did you do?")
+![](https://rayheberer.ai/img/pix2pix/beforeafter.png "I gave myself a horrifying, low-resolution 8-pack over the weekend. What did you do?")
 
-![](https://rayheberer.netlify.com/img/pix2pix/2gans.png "Above: generated images conditioned on a test input made by a model without data augmentation; below: same, but from a model trained on augmented data")
+![](https://rayheberer.ai/img/pix2pix/2gans.png "Above: generated images conditioned on a test input made by a model without data augmentation; below: same, but from a model trained on augmented data")
 ---
 So you see, interesting, but not much beyond that just yet. If anything, I considered these low-fi generated images a proof of concept that GANs could have commercial applications given larger datasets to work with.
 

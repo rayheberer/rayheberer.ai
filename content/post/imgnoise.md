@@ -33,7 +33,7 @@ profile = readPNG("~/R/publicblog/img/profile.png")
 
 writePNG(profile, "~/R/publicblog/img/imgnoise/profile_unaltered.png")
 ```
-![](https://rayheberer.netlify.com/img/profile_unaltered.png)
+![](https://rayheberer.ai/img/profile_unaltered.png)
 
 Before moving further, I would like to quickly acknowledge [Rustum Choksi](http://www.math.mcgill.ca/rchoksi/) as the mathematician and researcher who inspired me to make this package. His work in deblurring and denoising sometimes makes use of functions in MATLAB that apply noise to images in the first place so that the efficacy of his algorithms can be tested. This is what gave me the idea to implement such a function in R. I also had the distinct pleasure of failing his Partial Differential Equations course while attending McGill University.
 
@@ -48,7 +48,7 @@ profile_salt_pepper = imgnoise(profile, "salt_and_pepper", noise_density = 0.1)
 
 writePNG(profile_salt_pepper, "~/R/publicblog/img/imgnoise/profile_salt_pepper.png")
 ```
-![](https://rayheberer.netlify.com/img/profile_salt_pepper.png)
+![](https://rayheberer.ai/img/profile_salt_pepper.png)
 
 Well, while I'm at it I might as well show what all of the different types of noise might look like.
 
@@ -61,9 +61,9 @@ writePNG(profile_uniform, "~/R/publicblog/img/imgnoise/profile_uniform.png")
 writePNG(profile_gaussian, "~/R/publicblog/img/imgnoise/profile_gaussian.png")
 writePNG(profile_speckle, "~/R/publicblog/img/imgnoise/profile_speckle.png")
 ```
-![](https://rayheberer.netlify.com/img/profile_uniform.png)
-![](https://rayheberer.netlify.com/img/profile_gaussian.png)
-![](https://rayheberer.netlify.com/img/profile_speckle.png)
+![](https://rayheberer.ai/img/profile_uniform.png)
+![](https://rayheberer.ai/img/profile_gaussian.png)
+![](https://rayheberer.ai/img/profile_speckle.png)
 
 Hurrah, it works! I've probably never been so excited over low-fidelity in my life.
 
