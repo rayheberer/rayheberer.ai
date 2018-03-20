@@ -1,6 +1,6 @@
 ---
 author: Ray Heberer
-date: 2017-03-19
+date: 2017-03-20
 linktitle: A Discussion of Machine Learning Competitions
 title: A Discussion of Machine Learning Competitions
 tags: ["AI", "Machine Learning", "Competitions"]
