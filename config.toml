@@ -39,11 +39,11 @@ paginate = 5
 	url = "https://www.instagram.com/ray_heberer/"
 
 	[[params.navlinks]]
-	name = "About"
-	url = "about"
-	[[params.navlinks]]
 	name = "Blog"
 	url = ""
+	[[params.navlinks]]
+	name = "About"
+	url = "about"
 	[[params.navlinks]]
 	name = "Book Reviews"
     url = 'bookreviews'
