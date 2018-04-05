@@ -2,6 +2,7 @@
 author: Ray Heberer
 date: 2018-03-16
 linktitle: "Freakonomics" by Stephen Levitt and Stephen Dubner
+title: Freakonomics
 tags: ["Book Review", "Freakonomics", "Stephen Levitt", "Stephen Dubner"]
 ---
 

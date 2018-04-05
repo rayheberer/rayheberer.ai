@@ -2,6 +2,7 @@
 author: Ray Heberer
 date: 2018-03-23
 linktitle: "Scientific Papers and Presentations" by Martha Davis
+title: Scientific Papers and Presentations
 tags: ["Book Review", "Martha Davis", "Scientific Papers and Presentations"]
 ---
 

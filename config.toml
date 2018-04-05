@@ -45,5 +45,5 @@ paginate = 5
 	name = "Book Reviews"
     url = 'bookreviews'
 	[[params.navlinks]]
-	name = "Blog Archive"
+	name = "Archive"
 	url = "post"
