@@ -1,10 +1,7 @@
 ---
 author: Ray Heberer
 date: 2018-03-23
-linktitle: Review of "Scientific Papers and Presentations"
-title: Review of "Scientific Papers and Presentations"
 tags: ["Book Review", "Martha Davis", "Scientific Papers and Presentations"]
-highlight: false
 ---
 
 <a href="https://www.goodreads.com/book/show/1029438.Scientific_Papers_and_Presentations" style="float: left; padding-right: 20px"><img border="0" alt="Scientific Papers and Presentations" src="https://images.gr-assets.com/books/1348134049m/1029438.jpg" /></a><a href="https://www.goodreads.com/book/show/1029438.Scientific_Papers_and_Presentations">Scientific Papers and Presentations</a> by <a href="https://www.goodreads.com/author/show/222604.Martha_Davis">Martha Davis</a><br/>
