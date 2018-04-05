@@ -21,7 +21,8 @@ paginate = 5
 	profilepic = "img/profile-122017.jpg"
 	
 	title = "Ray Heberer"
-	subtitle = "Data Scientist | Musician"
+	subtitle = "Data Scientist | Musician <p><i class='fa fa-map-marker'></i> Creston, British Columbia</p>
+        <p>Currently: Data Science Student at <a href="https://lambdaschool.com/">Lambda School</a></p>"
 
 	# Social buttons for sidebar
 	# Each of these are optional
