@@ -32,6 +32,9 @@ paginate = 5
 	#faicon = "twitter"
 	#url = "https://twitter.com/rayheberer4"
 	[[params.socialbuttons]]
+	faicon = "medium"
+	url = "https://medium.com/@rayheberer/"
+	[[params.socialbuttons]]
 	faicon = "linkedin"
 	url = "https://linkedin.com/in/rayheberer"
 	[[params.socialbuttons]]
