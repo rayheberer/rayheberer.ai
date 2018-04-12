@@ -3,7 +3,7 @@ author: Ray Heberer
 date: 2017-10-15
 linktitle: Training a Tensorflow pix2pix cGAN on FloydHub to generate body transformations
 title: Training a Tensorflow pix2pix cGAN on FloydHub to generate body transformations
-tags: ["Tensorflow", "FloydHub", "pix2pix", "GAN", "Artificial Intelligence"]
+tags: ["Tensorflow", "FloydHub", "pix2pix", "GAN", "Artificial Intelligence", "Hackathon", "Code Sharing"]
 highlight: false
 ---
 

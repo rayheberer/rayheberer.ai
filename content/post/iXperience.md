@@ -3,7 +3,7 @@ author: Ray Heberer
 date: 2017-07-09
 linktitle: My Cape Town iXperience
 title: My Cape Town iXperience
-tags: [Personal, "Review", "Cape Town", "iXperience", "Travel"]
+tags: [Personal, "Cape Town", "iXperience", "Travel"]
 highlight: false
 ---
 ![](/img/devils-peak.jpg)
