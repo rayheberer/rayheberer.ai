@@ -18,5 +18,5 @@
             "keywords": ["mathematics","functions","vectors"]
         },
         "my_linkedin": "https://www.linkedin.com/in/rayheberer/",
-        "latex": "$$ \\begin{bmatrix}9 & 9\\\\6 & 10\\\\5 & 7\\end{bmatrix}=\\begin{bmatrix}1 & 0 & 1\\\\0 & 1 & 1\\\\0 & 0 & 1\\end{bmatrix}\\cdot\\begin{bmatrix}4 & 2\\\\1 & 3\\\\5 & 7\\end{bmatrix}$$"
+        "latex": "$$\\documentclass{article}\\usepackage{amsmath}\\begin{document}\\begin{bmatrix}9 & 9\\\\6 & 10\\\\5 & 7\\end{bmatrix}=\\begin{bmatrix}1 & 0 & 1\\\\0 & 1 & 1\\\\0 & 0 & 1\\end{bmatrix}\\cdot\\begin{bmatrix}4 & 2\\\\1 & 3\\\\5 & 7\\end{bmatrix}$$\\end{document}"
     }
