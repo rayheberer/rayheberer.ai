@@ -8,12 +8,12 @@
             "keywords": ["feature scaling","normalization","standardization"]
         },
         "blog_post_2": {
-            "title": "Simple Equations Worth Thinking About Again",
+            "title": "Revisiting the Mathematical Foundations of Data Science",
             "url": "https://medium.com/@rayheberer/simple-equations-worth-thinking-about-again-1ad6e6a9c026",
             "keywords": ["mathematics","functions","derivatives"]
         },
         "blog_post_3": {
-            "title": "What does PCA have to do with eigenvalues?",
+            "title": "What is PCA, and what does it have to do with eigenvalues?",
             "url": "<in development>",
             "keywords": ["principal components analysis","linear algebra","eigenvalue"]
         },
