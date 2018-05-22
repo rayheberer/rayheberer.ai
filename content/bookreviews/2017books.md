@@ -1,8 +1,8 @@
 ---
 author: Ray Heberer
 date: 2018-01-01
-linktitle: My 2017 Books
-title: My 2017 Books
+linktitle: 2017 Reads
+title: 2017 Reads
 tags: ["Book Review"]
 ---
 
