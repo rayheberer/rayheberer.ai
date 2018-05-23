@@ -42,7 +42,7 @@ While I found the section on rebasing valuable, I thought most of the sections l
 <br/><br/>
 
 <a href="https://www.goodreads.com/book/show/12700492-building-data-science-teams" style="float: left; padding-right: 20px"><img border="0" alt="Building Data Science Teams" src="https://images.gr-assets.com/books/1354249859m/12700492.jpg" /></a><a href="https://www.goodreads.com/book/show/12700492-building-data-science-teams">Building Data Science Teams</a> by <a href="https://www.goodreads.com/author/show/5227216.D_J_Patil">D.J. Patil</a><br/>
-My rating: <a href="https://www.goodreads.com/review/show/2323539211">4 of 5 stars</a><br /><br />
+<br /><br />
 What I enjoyed about this was its account of how LinkedIn built its data science team, and some of its philosophies on finding and nurturing talent. Overall, it was a good quick read that was relevant and helpful during the time I was first being introduced to data science as a discipline and career.
 <br/><br/>
 
