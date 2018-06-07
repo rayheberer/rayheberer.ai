@@ -1,6 +1,6 @@
 ---
 author: Ray Heberer
-date: 2017-06-06
+date: 2018-06-06
 linktitle: Getting Started with Hyperparameter Tuning
 title: Getting Started with Hyperparameter Tuning
 tags: ["hyperparameters", "model tuning", "machine learning", "cross validation", "AUC"]
@@ -14,7 +14,7 @@ Raise your hand if you've heard these before:
 
 These are nice, evocative statements that may serve well in instilling a sense of intrigue towards our work as Data Scientists in the laypeople we have casual conversations with. They are also great sources of complacency, good for taking fuzziness in one's understanding and attributing it to fuzziness in one's discipline. However, such sayings do little in the way of actually helping us approach hyperparameter tuning.
 
-![](/img/lambdaschool/hyperparameters/data-scientist-as-superman.jpeg)
+![](/img/lambdaschool/hyperparameters/data-scientist-as-superman.jpg)
 _[source](http://www.themeasurementstandard.com/2015/07/why-data-scientist-is-being-called-the-sexiest-job-of-the-21st-century/)_
 
 What these phrases can do is inform us that the practice of hyperparameter tuning will not offer the comforts of theoretical grounding and long-established convention that you would expect to find in the mature sciences. There may be best practices, but you should expect them to still be in a state of relative flux, and information on them to be distributed somewhat haphazardly. This implies that approaching hyperparameter tuning systematically will require more out of a human than the ability to pattern-match with engineering tables. 
@@ -37,8 +37,8 @@ Dataset partitioning should be done with the goal of making us feel less surpris
 
 Given a dataset, and some learning algorithms, there are two things that we would like to be able to do with our data.
 
-1. Provide a high-fidelity sample whose empirical distribution captures that of the underlying statistical population.
-2. Estimate how well a model will generalize to other samples of data drawn from the same environment.
+__1.__ Provide a high-fidelity sample whose empirical distribution captures that of the underlying statistical population.
+__2.__ Estimate how well a model will generalize to other samples of data drawn from the same environment.
 
 We want to be able to do __(1)__ because, well, that's kind of what makes the "learning" in machine learning useful. As for __(2)__, one reason being able to do so would be desirable is because such information helps us decide what model to use in the first place, and with what hyperparameters. A second reason is more business related. Presumably, our machine learning models are part of a product, or contribute to some decisions and policies. Being able to anticipate its performance and reliability is important strategically.
 
@@ -116,15 +116,17 @@ Of course, at the end of the day we should all strive towards more automation. F
 
 Hyperparameter tuning is an optimization problem, but one that is typically made more difficult by the lack of things like a smooth error surface with respect to the hyperparameters. Here, I discussed some of the background and challenges of hyperparameter tuning, especially related to the validation of model performance and the need to partition data. Though I have spoken a little abstractly, I hope to have shown that approaching the task in a way that is systematic yet adaptable is possible, and have provided some demonstrations that ground the conventional industry wisdom in something tangible.
 
-## Sample Code
+## Code Samples
 
-<script src="https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-validation_variance-py"></script>
-<script src="https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-random_forest_decision-py"></script>
-<script src="https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-hyperparameter_search-py"></script>
+* [Variance of Validation Error as Validation Set Samples Increase; Validation Accuracy Histograms](https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-validation_variance-py)
+
+* [Decision Boundaries of Random Forests with Different `n_estimators`](https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-random_forest_decision-py)
+
+* [Hyperparameter Search with `GridSearchCV` and `RandomizedSearchCV`](https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-hyperparameter_search-py)
 
 
 ## Resources
-* scikit learn documentation for [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), [`StratifiedKFold`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html), [`GridSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html), [`RandomizedSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
+* scikit learn documentation for [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), [`GridSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html), [`RandomizedSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
 * [Definition of Sampling Variance](http://ccsg.isr.umich.edu/index.php/resources/advanced-glossary/sampling-variance)
 * [What is the difference between sample variance and sampling variance?](https://stats.stackexchange.com/questions/16982/what-is-the-difference-between-sample-variance-and-sampling-variance?rq=1)
 * Wikipedia entries for [Standard Error](https://en.wikipedia.org/wiki/Standard_error), [Derivative-free Optimization]
