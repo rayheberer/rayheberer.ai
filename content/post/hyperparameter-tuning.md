@@ -15,7 +15,7 @@ Raise your hand if you've heard these before:
 These are nice, evocative statements that may serve well in instilling a sense of intrigue towards our work as Data Scientists in the laypeople we have casual conversations with. They are also great sources of complacency, good for taking fuzziness in one's understanding and attributing it to fuzziness in one's discipline. However, such sayings do little in the way of actually helping us approach hyperparameter tuning.
 
 ![](/img/lambdaschool/hyperparameters/data-scientist-as-superman.jpg)
-_[source](http://www.themeasurementstandard.com/2015/07/why-data-scientist-is-being-called-the-sexiest-job-of-the-21st-century/)_
+*[source](http://www.themeasurementstandard.com/2015/07/why-data-scientist-is-being-called-the-sexiest-job-of-the-21st-century/)*
 
 What these phrases can do is inform us that the practice of hyperparameter tuning will not offer the comforts of theoretical grounding and long-established convention that you would expect to find in the mature sciences. There may be best practices, but you should expect them to still be in a state of relative flux, and information on them to be distributed somewhat haphazardly. This implies that approaching hyperparameter tuning systematically will require more out of a human than the ability to pattern-match with engineering tables. 
 
@@ -47,6 +47,9 @@ Now that we've stated three objectives, there are a few natural follow-up questi
 
 We probably know that "Thou shalt not test on your training set" is one of the commandments of machine learning. From this we can guess that we will need to partition our dataset into different subsets, responsible for different objectives. If you have some experience, you also know that typically the data will be split into not only training and test sets, but also validation sets. I think I can do a little to motivate this, so that I can base my decisions off of something a little more grounded than "Andrew Ng told me so."
 
+![](/img/lambdaschool/hyperparameters/accuracy-histograms.png#center)
+*Validation Accuracy over Multiple Experiments on a Toy Dataset with Different Validation Set Sizes*
+
 The training, validation, and test sets each correspond to one of the objectives outlined earlier. The training set will be used to solve the optimization problem yielding a statistical model, and for this to be useful, must be representative of the sort of data we expect to encounter when using this trained model. 
 
 The validation set will be used to estimate how well our trained models generalize. Ideally, we would like to live in a world where models that score better on the validation set also end up performing better when deployed. If that is true, then even if the estimates we obtain from the validation set are biased, they will still be useful relative to one another in selecting a model or particular configuration of hyperparameters.
@@ -54,8 +57,6 @@ The validation set will be used to estimate how well our trained models generali
 Finally, the test set will be used in an attempt to produce an unbiased estimation of model performance. This goes towards those more strategy and business oriented objectives I mentioned earlier.
 
 So if the training set is used for optimization, and the validation and test sets are used for statistical estimation, how much data do we need for each? Especially when dealing with the sort of nonconvex optimization problems that correspond to training more complex models such as deep neural networks, we want as much data as possible for optimization. On the other hand, tasks like making point estimates and determining reasonable confidence intervals are far less data-gluttonous undertakings.
-
-![](/img/lambdaschool/hyperparameters/accuracy-histograms.png#center)
 
 Once you know how confident you wish to be in your estimates of model performance, it is just a matter of statistics to determine the sample size required to reach this confidence. Factors like the number of features and the characteristics of their distributions effect the exact outcome, but usually something around the ballpark of 1,000 data points is sufficient. Note that this is independent of the overall size of the dataset. Regardless of whether you have 25,000 or 75,000 samples from the same underlying population, you can have the same degree of confidence in the estimates of generalization you procured from a subset of 1,000.
 
