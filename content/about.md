@@ -1,3 +1,7 @@
+---
+disqus: false
+---
+
 # About Me
 
 Hello World!

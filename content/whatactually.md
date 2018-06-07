@@ -1,3 +1,7 @@
+---
+disqus: false
+---
+
 # The "What Actually..." Newsletter
 
 The culture of industry is one which admonishes us not to "reinvent the wheel" at the cost of our understanding and respect for just how hard inventing wheels is.
