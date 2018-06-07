@@ -50,3 +50,6 @@ paginate = 5
 	[[params.navlinks]]
 	name = "Book Reviews"
     url = "bookreviews"
+    [[params.navlinks]]
+    name = 'Newsletter'
+    url = "whatactually"
