@@ -48,7 +48,7 @@ Now that we've stated three objectives, there are a few natural follow-up questi
 We probably know that "Thou shalt not test on your training set" is one of the commandments of machine learning. From this we can guess that we will need to partition our dataset into different subsets, responsible for different objectives. If you have some experience, you also know that typically the data will be split into not only training and test sets, but also validation sets. I think I can do a little to motivate this, so that I can base my decisions off of something a little more grounded than "Andrew Ng told me so."
 
 ![](/img/lambdaschool/hyperparameters/accuracy-histograms.png#center)
-*Validation Accuracy over Multiple Experiments on a Toy Dataset with Different Validation Set Sizes*
+*Validation Accuracies on a Toy Dataset with Different Validation Set Sizes*
 
 The training, validation, and test sets each correspond to one of the objectives outlined earlier. The training set will be used to solve the optimization problem yielding a statistical model, and for this to be useful, must be representative of the sort of data we expect to encounter when using this trained model. 
 
