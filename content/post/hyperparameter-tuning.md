@@ -37,8 +37,9 @@ Dataset partitioning should be done with the goal of making us feel less surpris
 
 Given a dataset, and some learning algorithms, there are two things that we would like to be able to do with our data.
 
-__1.__ Provide a high-fidelity sample whose empirical distribution captures that of the underlying statistical population.
-__2.__ Estimate how well a model will generalize to other samples of data drawn from the same environment.
+__(1)__ Provide a high-fidelity sample whose empirical distribution captures that of the underlying statistical population.
+
+__(2)__ Estimate how well a model will generalize to other samples of data drawn from the same environment.
 
 We want to be able to do __(1)__ because, well, that's kind of what makes the "learning" in machine learning useful. As for __(2)__, one reason being able to do so would be desirable is because such information helps us decide what model to use in the first place, and with what hyperparameters. A second reason is more business related. Presumably, our machine learning models are part of a product, or contribute to some decisions and policies. Being able to anticipate its performance and reliability is important strategically.
 
@@ -54,11 +55,11 @@ Finally, the test set will be used in an attempt to produce an unbiased estimati
 
 So if the training set is used for optimization, and the validation and test sets are used for statistical estimation, how much data do we need for each? Especially when dealing with the sort of nonconvex optimization problems that correspond to training more complex models such as deep neural networks, we want as much data as possible for optimization. On the other hand, tasks like making point estimates and determining reasonable confidence intervals are far less data-gluttonous undertakings.
 
-![](/img/lambdaschool/hyperparameters/accuracy-histograms.png)
+![](/img/lambdaschool/hyperparameters/accuracy-histograms.png#center)
 
 Once you know how confident you wish to be in your estimates of model performance, it is just a matter of statistics to determine the sample size required to reach this confidence. Factors like the number of features and the characteristics of their distributions effect the exact outcome, but usually something around the ballpark of 1,000 data points is sufficient. Note that this is independent of the overall size of the dataset. Regardless of whether you have 25,000 or 75,000 samples from the same underlying population, you can have the same degree of confidence in the estimates of generalization you procured from a subset of 1,000.
 
-![](/img/lambdaschool/hyperparameters/accuracy-deviations.png)
+![](/img/lambdaschool/hyperparameters/accuracy-deviations.png#center)
 
 ## Running experiments, and why validation sets become stale
 As hinted earlier, the validation set will be used repeatedly to evaluate multiple different models. We would like to know to what extent differing performances on the validation set contain actionable information that can be used to select and tune models.
@@ -73,7 +74,7 @@ Imagine that we have a binary classification problem, and happen to be tuning th
 
 A single decision tree produces decision boundaries that consist of orthogonal lines through the feature space. The decision boundary of a few decision trees voting can have some more curves. This motivates the idea that increasing the amount of decision trees ensembled together into a random forest - the hyperparameter called `n_estimators` in the [sklearn implementation](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) - will enable more and more "wiggly" decision boundaries.
 
-![](/img/lambdaschool/hyperparameters/decision-boundaries.png)
+![](/img/lambdaschool/hyperparameters/decision-boundaries.png#center)
 
 Some random subsets of data will have more wiggly optimal decision boundaries than others. If it turns out that our validation set is slightly more wiggly than usual, then a random forest with more estimators will be shown to outperform one with slightly fewer. But this result has more to do with the randomness introduced by sampling than the true structure of the data. Here we begin to see what is meant when people say that information from the validation set bleeds over, causing its estimates to become optimistic.
 
@@ -106,7 +107,7 @@ With that in mind, let's talk about grid search. To me, grid search is one of th
 
 If you're familiar with grid search, you perhaps also know that random search is touted to be better, in that it is more likely to find configurations with better performance, when searching over the same range of values for the same number of iterations.
 
-![](/img/lambdaschool/hyperparameters/search.png)
+![](/img/lambdaschool/hyperparameters/search.png#center)
 
 The thing about random search is that it is highly dependent on the numeric range from which hyperparameter values will be sampled. It is also slightly less interpretable than grid search. Because of this, one suggestion would be to use a wide-comb grid search to locate the relevant orders of magnitude for numeric hyperparameters. It can also be used to make judgments regarding hyperparameters that take on discrete values, since it will be obvious if one choice always outperforms the other. After this, pass the baton to random search.
 
@@ -124,10 +125,16 @@ Hyperparameter tuning is an optimization problem, but one that is typically made
 
 * [Hyperparameter Search with `GridSearchCV` and `RandomizedSearchCV`](https://gist.github.com/rayheberer/16cbbfead8aef036c6d0b9e3b980d405#file-hyperparameter_search-py)
 
-
 ## Resources
 * scikit learn documentation for [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), [`GridSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html), [`RandomizedSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
 * [Definition of Sampling Variance](http://ccsg.isr.umich.edu/index.php/resources/advanced-glossary/sampling-variance)
 * [What is the difference between sample variance and sampling variance?](https://stats.stackexchange.com/questions/16982/what-is-the-difference-between-sample-variance-and-sampling-variance?rq=1)
 * Wikipedia entries for [Standard Error](https://en.wikipedia.org/wiki/Standard_error), [Derivative-free Optimization]
 (https://en.wikipedia.org/wiki/Derivative-free_optimization)
+
+<style>
+	img[src*='#center'] { 
+    display: block;
+    margin: auto;
+    }
+</style>
