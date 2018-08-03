@@ -1,10 +1,15 @@
 ---
 author: Ray Heberer
-date: 2018-06-16
+date: 2018-08-02
 linktitle: 2018 Reads
 title: 2018 Reads
 tags: ["Book Review"]
 ---
+
+<a href="https://www.goodreads.com/book/show/8045667-heaven-s-devils" style="float: left; padding-right: 20px"><img border="0" alt="Heaven's Devils (StarCraft II, #1)" src="https://images.gr-assets.com/books/1302978281m/8045667.jpg" /></a><a href="https://www.goodreads.com/book/show/8045667-heaven-s-devils">Heaven's Devils</a> by <a href="https://www.goodreads.com/author/show/78736.William_C_Dietz">William C. Dietz</a><br/>
+My rating: <a href="https://www.goodreads.com/review/show/2323561869">3 of 5 stars</a><br /><br />
+This had a slow start for me, which led to me putting it aside for many months. However, the last third or so was rather redeeming. Unlike some other books of this sort, Heaven's Devils does not assume the reader is familiar with StarCraft lore, especially because it functions as a sort of a prequel. It was rewarding for me to see the gradual appearance of familiar tech from the games replacing the author-imagined precursors. The slow, ominous reveal of neural resocialization technology had an especially good payoff. Unfortunately, Heaven's Devils ended just as I was really starting to get invested in the characters. In my view the last act had enough tension for at least a few more chapters, and if more of the content had been distributed there, I would have had a much better time reading the book as a whole.
+<br/><br/>
 
 <a href="https://www.goodreads.com/book/show/33116082-python-data-science-handbook" style="float: left; padding-right: 20px"><img border="0" alt="Python Data Science Handbook: Essential Tools for Working with Data" src="https://images.gr-assets.com/books/1479935139m/33116082.jpg" /></a><a href="https://www.goodreads.com/book/show/33116082-python-data-science-handbook">Python Data Science Handbook: Essential Tools for Working with Data</a> by <a href="https://www.goodreads.com/author/show/14318227.Jake_Vanderplas">Jake Vanderplas</a><br/>
 My rating: <a href="https://www.goodreads.com/review/show/2351557302">5 of 5 stars</a><br /><br />
