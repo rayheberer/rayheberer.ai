@@ -1,8 +1,8 @@
 ---
 author: Ray Heberer
 date: 2018-06-06
-linktitle: Getting Started with Hyperparameter Tuning
-title: Getting Started with Hyperparameter Tuning
+linktitle: Black Magic and Hyperparameter Tuning
+title: Black Magic and Hyperparameter Tuning
 tags: ["hyperparameters", "model tuning", "machine learning", "cross validation", "AUC"]
 highlight: false
 ---
