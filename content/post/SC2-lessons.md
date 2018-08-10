@@ -50,6 +50,7 @@ After a few days, when I had what seemed to be a working agent implemented, it w
 I am striving now to be meticulous in my reporting of results, both the successful and the unsuccessful. My experience training a very simple model on a relatively simple task environment (albeit with a large state space) has shown me firsthand that much of what one finds in research papers does not really convey how sensitive to hyperparameter settings and temperamental some deep RL agents can be. Keeping good records is the responsible thing to do, and will go a long way towards improving the reproducibility of deep RL.
 
 ![](http://www.rayheberer.ai/img/SC2-lessons/deepmind-graph.png)
+*DeepMind results: the faint lines represent 99 experiments with different hyperparameter settings.*
 
 #### 7. If using some form of random exploration, consider signalling somehow if an action is random or not.
 
