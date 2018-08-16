@@ -26,7 +26,7 @@ This is just an arbitrary breakdown, but I find it to be helpful intuitively and
 
 ### Inputs
 
-> Thus, the main observations come as sets of feature layers which are rendered at N × M pixels (where N and M are configurable, though in our experiments we always used N = M)... In addition to the screen and minimap, the human interface for the game provides various non-spatial observations.
+> Thus, the main observations come as sets of feature layers which are rendered at N × M pixels... In addition to the screen and minimap, the human interface for the game provides various non-spatial observations.
 
 ### State Representation
 
@@ -36,8 +36,7 @@ This is just an arbitrary breakdown, but I find it to be helpful intuitively and
 
 ### Policy Representation
 
-> ...we propose to represent the policy in an auto-regressive manner, utilising the chain rule:
-![](http://www.rayheberer.ai/img/SC2-DeepMind/Policy-Chain-Rule.png)
+> ...we propose to represent the policy in an auto-regressive manner, utilising the chain rule: ![](http://www.rayheberer.ai/img/SC2-DeepMind/Policy-Chain-Rule.png)
 
 > In most of our experiments we found it sufficient to model sub-actions independently...
 
