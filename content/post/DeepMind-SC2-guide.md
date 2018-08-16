@@ -1,8 +1,8 @@
 ---
 author: Ray Heberer
 date: 2018-08-16
-linktitle: Implementing a DeepMind Baseline StarCraft Reinforcement Learning Agent: A Guide for Humans
-title: Implementing a DeepMind Baseline StarCraft Reinforcement Learning Agent: A Guide for Humans
+linktitle: Implementing a DeepMind Baseline StarCraft Reinforcement Learning Agent
+title: Implementing a DeepMind Baseline StarCraft Reinforcement Learning Agent
 tags: ["starcraft", "reinforcement learning", "deep learning", "artificial intelligence", "machine learning"]
 highlight: false
 ---
