@@ -43,8 +43,8 @@ This is just an arbitrary breakdown, but I find it to be helpful intuitively and
 
 ### Action Selection
 
-> To ensure that unavailable actions are never chosen by our agents, we mask out the function identifier choice of a<sup>0</sup> such that only the proper subset can be sampled, imitating how a player randomly clicking buttons on the UI would play. We implement this by masking out actions and renormalising
-the probability distribution over a<sup>0</sup>.
+> To ensure that unavailable actions are never chosen by our agents, we mask out the function identifier choice of a0 such that only the proper subset can be sampled, imitating how a player randomly clicking buttons on the UI would play. We implement this by masking out actions and renormalising
+the probability distribution over a0.
 
 
 ### Training
