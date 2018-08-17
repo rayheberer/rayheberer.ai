@@ -62,7 +62,7 @@ class AtariNet(object):
 
 >  We embed all feature layers containing categorical values into a continuous space which is equivalent to using a one-hot encoding in the channel dimension followed by a 1 × 1 convolution. We also re-scale numerical features with a logarithmic transformation as some of them such as hit-points or minerals might attain substantially high values.
 
-While I the language of "embedding" to be a little intimidating, the details that followed proved to be simpler to implement. More so than applying the one-hot encoding followed by the convolutional layer, I found that inferring whether a feature was categorical or numerical to be the more laborious task. 
+While I found the language of "embedding" to be a little intimidating, the details that followed proved to be simpler to implement. More so than applying the one-hot encoding followed by the convolutional layer, I found that inferring whether a feature was categorical or numerical to be the more laborious task. 
 
 ```
 def preprocess_spatial_features(features, screen=True):
@@ -99,6 +99,8 @@ def preprocess_spatial_features(features, screen=True):
     preprocessed = tf.concat(preprocess_ops, -1)
     return preprocessed
 ```
+
+---
 
 > It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation.
 
@@ -173,13 +175,11 @@ class AtariNet(object):
 
 One point of confusion for me here was regarding the "chain rule." It refers to the [general product rule](https://en.wikipedia.org/wiki/Chain_rule_(probability) from probability theory, not the rule from calculus that also goes by the name "chain rule."
 
-Basically, because any given action in StarCraft II (called function identifiers) might require a variable number of arguments, an efficient way to represent policies over both function identifierss and arguments is to have a policy over each type indep
-
 > In most of our experiments we found it sufficient to model sub-actions independently... For spatial actions (coordinates) we independently model policies to select (discretised) x and y coordinates.
 
 Basically, because any given action in StarCraft II (called function identifiers) might require a variable number of arguments, an efficient way to represent policies over both function identifiers and arguments is to have a policy over each type independently, where the probability of any argument given a function identifier which doesn't require it effectively becomes zero.
 
-There are around 10 types of function identifiers in PySC2, where each requires a different sequence of actions. When implementing this in the Tensorflow graph, I found that using a dictionary was a good way to keep track of all the output layers. I also built a dictionary for placeholders that would be used later on in training the network.
+There are around 10 general types of function identifiers in PySC2, each requiring a different sequence of arguments. When implementing this in the Tensorflow graph, I found that using a dictionary was a good way to keep track of all the output layers. I also built a dictionary for placeholders that would be used later on in training the network.
 
 
 ```
@@ -340,9 +340,9 @@ class A2CAtari(base_agent.BaseAgent):
 
 ### Bonus: The A3C (or A2C) gradient
 
-![](http://www.rayheberer.ai/img/SC2-DeepMind/A3C-Gradient.png)
+>  The A3C gradient is defined as follows: ![](http://www.rayheberer.ai/img/SC2-DeepMind/A3C-Gradient.png)
 
-I intend to write about this in depth in the future, but I there was so much to unpack in this equation that I thought it would be fun to include. One thing that is interesting is that the policy and value gradients are qualitatively different things, but smashing them together with simple addition still manages to produce a viable optimization objective (provided with some hyperparameters knobs to turn). Also interesting to me was that the "advantage" - the difference between observed returns and estimated values which the gradient components are scaled by - is treated as a constant factor, meaning that I had to use [`tf.stop_gradient`](https://www.tensorflow.org/api_docs/python/tf/stop_gradient) so that the weights wouldn't just update to shift value estimates in order to cheat the equation.
+I intend to write about this in the future, but there was so much to unpack in this equation that I thought it would be fun to include. One thing that is interesting is that the policy and value gradients represent qualitatively different things, but smashing them together with simple addition still manages to produce a viable optimization objective (provided with some hyperparameters knobs to turn). Also interesting to me was that the "advantage" - the difference between observed returns and estimated values which the gradient components are scaled by - acts as a constant factor though it includes a network output for value in its calculation. This meant that I had to use [`tf.stop_gradient`](https://www.tensorflow.org/api_docs/python/tf/stop_gradient) so that the weights wouldn't just update to shift value estimates in a way that gamed the equation.
 
 ```
 class AtariNet(object):
