@@ -7,12 +7,14 @@ tags: ["starcraft", "reinforcement learning", "deep learning", "artificial intel
 highlight: true
 ---
 
+![](http://www.rayheberer.ai/img/SC2-DeepMind/demo.gif)
+
 Implementing deep learning models described in research papers is a challenging yet illuminating experience that shows just how much information can be compressed into a handful of sentences or paragraphs. This week, after having [gotten to know the ropes](http://www.rayheberer.ai/post/sc2-lessons/) of the StarCraft II python API and reinforcement learning environment, I set out to build the first of the three baseline agents described in [StarCraft II: A New Challenge for Reinforcement Learning
-](https://arxiv.org/abs/1708.04782). 
+](https://arxiv.org/abs/1708.04782).
 
 Specifically, an Advantage Actor-Critic agent that estimates state values and optimal policies using a convolutional neural network architecture based on that in [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783). Due to resource constraints, I did not go so far as to implement the "Asynchronous" part of A3C, meaning I only run one agent at a time, instead of many in parallel.
 
-In this post I will highlight the sections of the two research papers informing the agent's design which contained the most information relevant to the technical implementation. I hope that this will serve as a useful example for how to translate researcher-speak into code. My full implementation can be found at https://github.com/rayheberer/SC2Agents/blob/master/agents/actor-critic.py.
+In this post I will highlight the sections from these two research papers informing the agent's design which contained the most information relevant to the technical implementation. I hope that this will serve as a useful example for how to translate researcher-speak into code. My full implementation can be found at https://github.com/rayheberer/SC2Agents/blob/master/agents/actor-critic.py.
 
 Broadly speaking, a deep reinforcement learning agent needs to fulfill four requirements:
 
@@ -102,7 +104,7 @@ def preprocess_spatial_features(features, screen=True):
 
 ---
 
-> It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation.
+> It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation. ![](http://www.rayheberer.ai/img/SC2-DeepMind/Atari-Net.png)
 
 Though these paragraphs of the paper correspond to some of the longest chunks of code, they are easily implemented because of the powerful Deep Learning API's available, of which Tensorflow is my tool of choice here.
 
