@@ -104,7 +104,7 @@ def preprocess_spatial_features(features, screen=True):
 
 ---
 
-> It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation. ![](http://www.rayheberer.ai/img/SC2-DeepMind/Atari-Net.png)
+> It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation. <img src="http://www.rayheberer.ai/img/SC2-DeepMind/Atari-Net.png" alt="atarinet" width="200px"/>
 
 Though these paragraphs of the paper correspond to some of the longest chunks of code, they are easily implemented because of the powerful Deep Learning API's available, of which Tensorflow is my tool of choice here.
 
