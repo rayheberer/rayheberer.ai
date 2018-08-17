@@ -16,7 +16,7 @@ Specifically, an Advantage Actor-Critic agent that estimates state values and op
 
 In this post I will highlight the sections from these two research papers informing the agent's design which contained the most information relevant to the technical implementation. I hope that this will serve as a useful example for how to translate researcher-speak into code. My full implementation can be found at https://github.com/rayheberer/SC2Agents/blob/master/agents/actor-critic.py.
 
-Broadly speaking, a deep reinforcement learning agent needs to fulfill four requirements:
+Broadly speaking, a deep reinforcement learning agent needs to fulfill five requirements:
 
 1. Receive percepts (inputs) containing information about the state
 2. Process the percepts through a deep network to produce a state representation.
