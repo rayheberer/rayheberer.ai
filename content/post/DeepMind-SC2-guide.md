@@ -108,7 +108,7 @@ def preprocess_spatial_features(features, screen=True):
 
 > <img src="http://www.rayheberer.ai/img/SC2-DeepMind/Atari-Net.png" alt="atarinet" width="350px"/>
 
-Though these paragraphs of the paper correspond to some of the longest chunks of code, they are easily implemented because of the powerful Deep Learning API's available, of which Tensorflow is my tool of choice here.
+Though these paragraphs of the paper correspond to some of the longest chunks of code, they are easily implemented because of the powerful Deep Learning frameworks available, of which Tensorflow is my tool of choice here.
 
 ```
 class AtariNet(object):
@@ -177,7 +177,7 @@ class AtariNet(object):
 
 > ...we propose to represent the policy in an auto-regressive manner, utilising the chain rule: ![](http://www.rayheberer.ai/img/SC2-DeepMind/Policy-Chain-Rule.png).
 
-One point of confusion for me here was regarding the "chain rule." It refers to the [general product rule](https://en.wikipedia.org/wiki/Chain_rule_(probability) from probability theory, not the rule from calculus that also goes by the name "chain rule."
+One point of confusion for me here was regarding the "chain rule." It refers to the [general product rule](https://en.wikipedia.org/wiki/Chain_rule_(probability)) from probability theory, not the rule from calculus that also goes by the name "chain rule."
 
 > In most of our experiments we found it sufficient to model sub-actions independently... For spatial actions (coordinates) we independently model policies to select (discretised) x and y coordinates.
 
@@ -346,7 +346,9 @@ class A2CAtari(base_agent.BaseAgent):
 
 >  The A3C gradient is defined as follows: ![](http://www.rayheberer.ai/img/SC2-DeepMind/A3C-Gradient.png)
 
-I intend to write about this in the future, but there was so much to unpack in this equation that I thought it would be fun to include. One thing that is interesting is that the policy and value gradients represent qualitatively different things, but smashing them together with simple addition still manages to produce a viable optimization objective (provided with some hyperparameters knobs to turn). Also interesting to me was that the "advantage" - the difference between observed returns and estimated values which the gradient components are scaled by - acts as a constant factor though it includes a network output for value in its calculation. This meant that I had to use [`tf.stop_gradient`](https://www.tensorflow.org/api_docs/python/tf/stop_gradient) so that the weights wouldn't just update to shift value estimates in a way that gamed the equation.
+I intend to write about this in the future, but there was so much to unpack in this equation that I thought it would be fun to include. One thing that is interesting is that the policy and value gradients represent qualitatively different things, but smashing them together with simple addition still manages to produce a viable optimization objective (provided with some hyperparameters knobs to turn). 
+
+Also interesting to me was that the "advantage" - the difference between observed returns and estimated values which the gradient components are scaled by - acts as a constant factor though it includes a network output for value in its calculation. This meant that I had to use [`tf.stop_gradient`](https://www.tensorflow.org/api_docs/python/tf/stop_gradient) so that the weights wouldn't just update to shift value estimates in a way that gamed the equation.
 
 ```
 class AtariNet(object):
