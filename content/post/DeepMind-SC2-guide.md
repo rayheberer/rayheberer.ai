@@ -12,7 +12,7 @@ Implementing deep learning models described in research papers is a challenging 
 
 Specifically, an Advantage Actor-Critic agent that estimates state values and optimal policies using a convolutional neural network architecture based on that in [Asynchronous Methods for Deep Reinforcement Learning](https://arxiv.org/abs/1602.01783). Due to resource constraints, I did not go so far as to implement the "Asynchronous" part of A3C, meaning I only run one agent at a time, instead of many in parallel.
 
-In this post I will highlight the sections of the two research papers informing the agent's design which contained the most information relevant to the technical implementation. I hope that this will serve as a useful example for engineers seeking to read research papers and need a perspective on what to focus on, as well as a general reinforcement learning guide - though I intend to write more about this specifically. The full code can be found at https://github.com/rayheberer/SC2Agents/blob/master/agents/actor-critic.py.
+In this post I will highlight the sections of the two research papers informing the agent's design which contained the most information relevant to the technical implementation. I hope that this will serve as a useful example for how to translate researcher-speak into code. My full implementation can be found at https://github.com/rayheberer/SC2Agents/blob/master/agents/actor-critic.py.
 
 Broadly speaking, a deep reinforcement learning agent needs to fulfill four requirements:
 
@@ -27,6 +27,10 @@ This is just an arbitrary breakdown, but I find it to be helpful intuitively and
 ### Inputs
 
 > Thus, the main observations come as sets of feature layers which are rendered at N × M pixels... In addition to the screen and minimap, the human interface for the game provides various non-spatial observations.
+
+For an agent to interface with PySC2, it must have a `step(self, obs)` method that is called every timestep. In addition it may have a `reset(self)` method that is called at the beginning of each episode.
+
+I like to use separate classes for my deep neural networks, as shown below. The inputs, which come in the form of feature layers, correspond relatively straightforwardly to placeholders in a Tensorflow graph. The API exposes them in arrays of shape `[channels, y, x]`, so later on in my network I make sure to permute these dimensions appropriately so that they can be fed into convolutional layers, and often make use of `np.expand_dims` when feeding a batch of 1 into the graph. 
 
 ```
 class AtariNet(object):
@@ -57,6 +61,8 @@ class AtariNet(object):
 ### State Representation
 
 >  We embed all feature layers containing categorical values into a continuous space which is equivalent to using a one-hot encoding in the channel dimension followed by a 1 × 1 convolution. We also re-scale numerical features with a logarithmic transformation as some of them such as hit-points or minerals might attain substantially high values.
+
+While I the language of "embedding" to be a little intimidating, the details that followed proved to be simpler to implement. More so than applying the one-hot encoding followed by the convolutional layer, I found that inferring whether a feature was categorical or numerical to be the more laborious task. 
 
 ```
 def preprocess_spatial_features(features, screen=True):
@@ -95,6 +101,8 @@ def preprocess_spatial_features(features, screen=True):
 ```
 
 > It processes screen and minimap feature layers with... two layers with 16, 32 filters of size 8, 4 and stride 4, 2 respectively. The non-spatial features vector is processed by a linear layer with a tanh non-linearity. The results are concatenated and sent through a linear layer with a ReLU activation.
+
+Though these paragraphs of the paper correspond to some of the longest chunks of code, they are easily implemented because of the powerful Deep Learning API's available, of which Tensorflow is my tool of choice here.
 
 ```
 class AtariNet(object):
@@ -161,9 +169,17 @@ class AtariNet(object):
 
 ### Policy Representation
 
-> ...we propose to represent the policy in an auto-regressive manner, utilising the chain rule: ![](http://www.rayheberer.ai/img/SC2-DeepMind/Policy-Chain-Rule.png)
+> ...we propose to represent the policy in an auto-regressive manner, utilising the chain rule: ![](http://www.rayheberer.ai/img/SC2-DeepMind/Policy-Chain-Rule.png).
+
+One point of confusion for me here was regarding the "chain rule." It refers to the [general product rule](https://en.wikipedia.org/wiki/Chain_rule_(probability) from probability theory, not the rule from calculus that also goes by the name "chain rule."
+
+Basically, because any given action in StarCraft II (called function identifiers) might require a variable number of arguments, an efficient way to represent policies over both function identifierss and arguments is to have a policy over each type indep
 
 > In most of our experiments we found it sufficient to model sub-actions independently... For spatial actions (coordinates) we independently model policies to select (discretised) x and y coordinates.
+
+Basically, because any given action in StarCraft II (called function identifiers) might require a variable number of arguments, an efficient way to represent policies over both function identifiers and arguments is to have a policy over each type independently, where the probability of any argument given a function identifier which doesn't require it effectively becomes zero.
+
+There are around 10 types of function identifiers in PySC2, where each requires a different sequence of actions. When implementing this in the Tensorflow graph, I found that using a dictionary was a good way to keep track of all the output layers. I also built a dictionary for placeholders that would be used later on in training the network.
 
 
 ```
@@ -239,6 +255,8 @@ class AtariNet(object):
 > To ensure that unavailable actions are never chosen by our agents, we mask out the function identifier choice of a0 such that only the proper subset can be sampled, imitating how a player randomly clicking buttons on the UI would play. We implement this by masking out actions and renormalising
 the probability distribution over a0.
 
+While in my first pass, I implemented this masking outside of the Tensorflow graph, during the actual selection of actions, it could just as well be implemented within the graph, and in a future update I may move it there.
+
 ```
 class A2CAtari(base_agent.BaseAgent):
     # ...
@@ -283,37 +301,48 @@ class A2CAtari(base_agent.BaseAgent):
 
 > In A3C, we cut the trajectory and run backpropagation after K = 40 forward steps of a network or if a terminal signal is received.
 
+This sentence actually inspired this entire post. Initially having no idea what it meant to "cut the trajectory" I embarked on a journey of knowledge. The following two quotes come from the original A3C paper.
+
 > Like our variant of n-step Q-learning, our variant of actor-critic also operates in the forward view and uses the same mix of n-step returns to update both the policy and the value-function.
 
-> The algorithm then computes gradients for n-step Q-learning updates for each of the state-action pairs encountered since the last update. Each n-step update uses the longest possible n-step return resulting in a one-step update for the last state, a two-step update for the second last state, and so on for a total of up to tmax updates. The accumulated updates are applied in a single gradient step.
+Of course, I had skipped directly to the section on A3C agents, but I knew that the trail was getting hotter.
+
+> The algorithm then computes gradients for n-step Q-learning updates for each of the state-action pairs encountered since the last update. Each n-step update uses the longest possible n-step return resulting in a one-step update for the last state, a two-step update for the second last state, and so on for a total of up to t_max updates. The accumulated updates are applied in a single gradient step.
+
+And at last, everything is made clear! No, not really. This was still a highly dense piece of researcher-speak, but with the help of some pseudo-code in the appendix, I finally understood something about how the targets used to train the network would be produced.
 
 ```
 class A2CAtari(base_agent.BaseAgent):
     # ...
     # ...
-    def step(self, obs):
+    def _get_batch(self, terminal):
         # ...
         # ...
-        # train model
-        if self.training:
-            if self.last_action:
-                # most recent steps on the left of the deques
-                self.state_buffer.appendleft((screen_features,
-                                              minimap_features,
-                                              flat_features))
-                self.action_buffer.appendleft(self.last_action)
-                self.reward_buffer.appendleft(obs.reward)
+        # calculate discounted rewards
+        raw_rewards = list(self.reward_buffer)
+        if terminal:
+            value = 0
+        else:
+            value = np.squeeze(self.sess.run(
+                self.network.value_estimate,
+                feed_dict={self.network.screen_features: screen[-1:],
+                           self.network.minimap_features: minimap[-1:],
+                           self.network.flat_features: flat[-1:]}))
 
-            # cut trajectory and train model
-            if self.steps % self.trajectory_training_steps == 0 or terminal:
-                self._train_network(terminal)
-
-            self.last_action = [action_id, args, arg_types]
+        returns = []
+        # n-step discounted rewards from 1 < n < trajectory_training_steps
+        for i, reward in enumerate(raw_rewards):
+            value = reward + self.discount_factor * value
+            returns.append(value)
         # ...
         # ...
 ```
 
+### Bonus: The A3C (or A2C) gradient
+
 ![](http://www.rayheberer.ai/img/SC2-DeepMind/A3C-Gradient.png)
+
+I intend to write about this in depth in the future, but I there was so much to unpack in this equation that I thought it would be fun to include. One thing that is interesting is that the policy and value gradients are qualitatively different things, but smashing them together with simple addition still manages to produce a viable optimization objective (provided with some hyperparameters knobs to turn). Also interesting to me was that the "advantage" - the difference between observed returns and estimated values which the gradient components are scaled by - is treated as a constant factor, meaning that I had to use [`tf.stop_gradient`](https://www.tensorflow.org/api_docs/python/tf/stop_gradient) so that the weights wouldn't just update to shift value estimates in order to cheat the equation.
 
 ```
 class AtariNet(object):
@@ -358,3 +387,7 @@ class AtariNet(object):
 ```
 
 ### Conclusion
+
+I have underlined the portions of the two guiding research papers which were among the most important, and showed how they mapped onto code. This project has left me with new respect for just how much researchers are able to condense mountains of information into sentences so short they could be shared on Twitter. 
+
+Though my commentary has been brief - and deliberately so, for I wished to emphasize the relationship between the scientific reporting and the code - I plan to follow up with an article that delves into the _meaning_ of all of these concepts in more depth.
