@@ -81,6 +81,16 @@ body {
       &:hover {
         opacity:0.9;
       }
+      &#tweet-quote, &#tumblr-quote {
+        float:left;
+        padding:0px;
+        padding-top:8px;
+        text-align:center;
+        font-size:1.2em;
+        margin-right:5px;
+        height:30px;
+        width:40px;
+      }
       &#new-quote {
         float:right;
       }
