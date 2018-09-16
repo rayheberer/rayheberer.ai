@@ -68,12 +68,6 @@ function getQuote() {
     },
     1000
   );
-  $(".button").animate(
-    {
-      backgroundColor: colors[color]
-    },
-    1000
-  );
 }
 
 $(document).ready(function() {
