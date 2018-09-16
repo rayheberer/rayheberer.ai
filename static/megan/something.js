@@ -20,7 +20,7 @@ function getQuotes() {
     headers: {
       Accept: "application/json"
     },
-    url: 'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json',
+    url: 'https://gist.githubusercontent.com/rayheberer/cad42ce2a1a5cc907b79719561f3eb3c/raw/8ddb6510f17d183ec3cdc8c99ce6ee1214710029/somethings.json',
     success: function(jsonQuotes) {
       if (typeof jsonQuotes === 'string') {
         quotesData = JSON.parse(jsonQuotes);
@@ -40,14 +40,7 @@ function getQuote() {
   let randomQuote = getRandomQuote();
   
   currentQuote = randomQuote.quote;
-  currentAuthor = randomQuote.author;
-
-  if(inIframe())
-  {
-    $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
-
-    $('#tumblr-quote').attr('href', 'https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='+encodeURIComponent(currentAuthor)+'&content=' + encodeURIComponent(currentQuote)+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');
-  }
+  currentAuthor = randomQuote.date;
   
   $(".quote-text").animate(
     { opacity: 0 },
@@ -58,12 +51,12 @@ function getQuote() {
     }
   );
 
-  $(".quote-author").animate(
+  $(".quote-date").animate(
     { opacity: 0 },
     500,
     function() {
       $(this).animate({ opacity: 1}, 500);
-      $('#author').html(randomQuote.author);
+      $('#date').html(randomQuote.date);
     }
   );
 
