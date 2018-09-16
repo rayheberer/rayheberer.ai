@@ -20,7 +20,7 @@ function getQuotes() {
     headers: {
       Accept: "application/json"
     },
-    url: 'https://gist.githubusercontent.com/rayheberer/cad42ce2a1a5cc907b79719561f3eb3c/raw/8ddb6510f17d183ec3cdc8c99ce6ee1214710029/somethings.json',
+    url: 'https://gist.githubusercontent.com/rayheberer/fe56eb9ab05c500817f208432210b269/raw/61fa0c34840d2b7f54709e6e8bbaae7244e04ed6/somethings.json',
     success: function(jsonQuotes) {
       if (typeof jsonQuotes === 'string') {
         quotesData = JSON.parse(jsonQuotes);
