@@ -13,6 +13,7 @@
         <header>
             <div class="text-container">
                 <h1>Visual Relationship Detection</h1>
+                <h3><em>Paul Fang, Raymond Heberer, Jasper Jenkins, Abhinav Pelapudi</em></h3>
                 <p>Finding spatial relations, or more generally visual relationship detection, is a classification task performed on image data. In order to do so, instances of objects must first be found within the image. Then, for each pair of detections, relationships - often called "predicates" - are predicted.</p>
                 <p>In this capstone we study the academic literature and implement existing approaches to finding relations between objects in images. Researchers from Stanford University conclude in a 2016 study that "while this task is easy for humans, Visual Relationship Detection is still a hard unsolved task" (Lu & Krishna). By reproducing the work of researchers in this domain, we have obtained a more precise understanding of what challenges - both theoretical and practical - make this task so challenging.</p>
             </div>
@@ -46,6 +47,7 @@
             <article id="GAN-article">
                 <div class="text-container">
                     <h2>Conclusion & Next Steps</h2>
+
                     <p>Reproducing results from this recent computer vision task has proven to be very challenging for a number of reasons.</p>
                     <p>Most notably, the research assumes familiarity with state-of-the-art object detection, and provides very scarce implementation details for their object detector modules. Most likely, existing implementations are used, and our efforts in engineering a Faster R-CNN showed that reproducing the network architectures was not sufficient to obtain a practical object detector, but that many image processing and computer vision techniques are needed to get something production ready.</p>
                     <p>Also, with a small dataset, a deep neural network based classification model is prone to overfitting. It remains to be seen whether some middle ground between memorizing the data and making undertuned guesses can be found. It may be the case that the accuracy trade-off made by a single shot detector such as YOLOv3 will have a significant impact on the potential of a visual relationship classifier, and that the features extracted will be sufficient for fine-tuned classification.</p>
