@@ -1,5 +1,5 @@
 # Personal Blog
-This repository contains the entirety of my [personal website](http://rayheberer.ai).
+This repository contains my [personal website](http://rayheberer.ai).
 
 ## Framework
 rayheberer.ai/ is built using [Hugo](https://gohugo.io/), a simple yet flexible static website engine.
