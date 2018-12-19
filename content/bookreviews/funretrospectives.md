@@ -1,6 +1,6 @@
 ---
 author: Ray Heberer
-date: 2018-04-11
+date: 2018-12-18
 linktitle: Fun Retrospectives
 title: Fun Retrospectives
 tags: ["Book Review", "Paulo Caroli", "Fun Retrospectives"]
