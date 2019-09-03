@@ -5,7 +5,7 @@
 	<!-- Check if header is not set or empty -->
 	{{ if (not (isset .Site.Params "header")) | or (eq .Site.Params.header "") }}
 	  <br>
-	  
+
 		<h1>What I'm Thinking</h1>
 	{{ else }}
 		<h1>{{ .Site.Params.header }}</h1>
@@ -33,9 +33,5 @@
 <blockquote class="embedly-card"><h4><a href="https://blog.floydhub.com/generating-six-pack-abs-with-tensorflow/">Generating Six-Pack Abs With TensorFlow pix2pix</a></h4><p>Visualizing results can be a powerful form of motivation and preparation. However, in the fitness domain, it can often be difficult to clearly see this future outcome. Can we use deep learning to bring people closer to their individual fitness goals by helping them visualize their future results?</p></blockquote>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 
-
-<div class="text-center center-block">
-	{{ template "_internal/pagination.html" . }}
-</div>
 
 {{ partial "footer.html" . }}
