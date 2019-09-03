@@ -43,7 +43,7 @@ async function app() {
     }
 
     await tf.nextFrame();
-  }
+  };
 }
 
 async function setupWebcam() {
