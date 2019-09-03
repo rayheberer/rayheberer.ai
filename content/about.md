@@ -4,14 +4,12 @@ disqus: false
 
 # About Me
 
-Hello World!
-
-I sometimes struggle when trying to put what I think of as the essence of my person into words, but if you are to know one thing, it is that I am intensely, naively curious.
+Hello World! My name's Ray.
 
 My interests lie somewhere in the intersection between understanding behavior that I find interesting in humans, such as acting creatively or asking questions, and discovering the methods by which this sort of behavior can be characterized, formalized, and replicated with intentionally designed intelligent agents. My abilities, I hope, are converging towards being distributed such that I am best able to satisfy these interests.
 
-If I may speak for myself, I ask questions always in the hope of learning that something about the way I posed them reflected a more fundamental lack of understanding, or somehow otherwise slicing through the space of things I don't know that I don't know, leaving me with a greater sense of direction. I hope that I can begin to use my blog in a way that exposes me to the insights and guidance of all those I can learn from - and that includes you!
+Lately, I've been working as a Data Scientist at a small B2B consultancy called Linnaean. While there, I've developed a keen interest in developing tools that can amplify the productivity and output of both myself and others.
 
-Oh, and if you were looking for my professional or academic history instead of my personality traits, click on one of those social medial links or check out [my CV](https://rayheberer.github.io/).
+Oh, and I also love music. I used to record a lot of rough demos in high school, check them out below.
 
-The articles contained on this site are largely personal reflections and long-form discussions. For more impromptu posts, please check out my [Medium](https://medium.com/@rayheberer/).
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/230264587&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
