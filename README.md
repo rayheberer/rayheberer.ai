@@ -1,6 +1,8 @@
 # Personal Blog
 This repository contains my [personal website](http://rayheberer.ai). I also use it to store miscellaneous data.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/40c46887-d6f2-47a9-a6bf-80a5491a01f7/deploy-status)](https://app.netlify.com/sites/rayheberer/deploys)
+
 ## Framework
 rayheberer.ai/ is built using [Hugo](https://gohugo.io/), a simple yet flexible static website engine.
 
