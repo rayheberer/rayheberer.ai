@@ -49,6 +49,9 @@
   </head>
   <body>
     {{ partial "nav.html" . }}
+
+    <h1>Trainable Webcam Image Classifier</h1>
+
     <div>
       <button id="class-a">Train A</button>
       <button id="class-b">Train B</button>
@@ -57,6 +60,8 @@
     </div>
     <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
     <div id="console"></div>
+
+    {{ partial "footer.html" . }}
 
     <!-- Load index.js after the content of the page -->
     <script src="index.js"></script>
