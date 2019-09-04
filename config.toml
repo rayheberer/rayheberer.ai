@@ -44,5 +44,8 @@ paginate = 5
 	name = "About"
 	url = "about"
   [[params.navlinks]]
+  name = "Projects"
+  url = "projects"
+  [[params.navlinks]]
   name = "Archive"
   url = "archive"
