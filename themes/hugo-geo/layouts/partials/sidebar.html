@@ -1,9 +1,9 @@
 <div id="menu" class="hidden-xs col-sm-4 col-md-3">
 	<div id="menu-content" class="vertical-align">
 		{{ if isset .Site.Params "title" }}
-			<h1 class="text-center"><a href="{{ .Site.BaseURL }}" target="_self">{{ .Site.Params.title }}</a></h1>
+			<h1 class="text-center"><a href="{{ .Site.BaseURL }}">{{ .Site.Params.title }}</a></h1>
 		{{ else }}
-			<h1 class="text-center"><a href="{{ .Site.BaseURL }}" target="_self">{{ .Site.Title }}</a></h1>
+			<h1 class="text-center"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
 		{{ end }}
 
 		{{ if isset .Site.Params "subtitle" }}
@@ -23,7 +23,7 @@
 		<div id="links" class="text-center">
 			{{ $url := .Site.BaseURL }}
 			{{ range .Site.Params.navlinks }}
-				<a href="{{ $url }}{{ .url }} target="_self"">{{ .name }}</a>
+				<a href="{{ $url }}{{ .url }}">{{ .name }}</a>
 			{{ end }}
 		</div>
 	</div>
