@@ -53,8 +53,9 @@
     <h1>Trainable Webcam Image Classifier</h1>
 
     <div id="instructions">
-      <img src="/img/demo.gif" alt="demo" width="250" height="250"/>
-
+      <div style="margin:0 auto;">
+        <img src="/img/demo.gif" alt="demo" width="250" height="250"/>
+      </div>
       <ul>
         <li>The model will try to classify the input from the webcam into 1 of 3 categories.</li>
         <li>Its predictions and confidence are shown below.</li>
@@ -64,15 +65,16 @@
         <li>For best results, show it examples of A first, then B and then C.</li>
       </ul>
     </div>
-
+    <hr/>
     <div>
       <button id="class-a">Train A</button>
       <button id="class-b">Train B</button>
       <button id="class-c">Train C</button>
     </div>
-    <video autoplay playsinline muted id="webcam" width="250" height="250"></video>
-    <div id="console">Train the model for it to begin predicting!</div>
-
+    <div style="margin:0 auto">
+      <video autoplay playsinline muted id="webcam" width="250" height="250"></video>
+      <div id="console">Train the model for it to begin predicting!</div>
+    </div>
     {{ partial "footer.html" . }}
 
     <!-- Load index.js after the content of the page -->
