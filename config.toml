@@ -27,9 +27,9 @@ paginate = 5
 	[[params.socialbuttons]]
 	faicon = "github"
 	url = "https://github.com/rayheberer"
-	#[[params.socialbuttons]]
-	#faicon = "twitter"
-	#url = "https://twitter.com/rayheberer4"
+	[[params.socialbuttons]]
+	faicon = "twitter"
+	url = "https://twitter.com/rayheberer4"
 	[[params.socialbuttons]]
 	faicon = "medium"
 	url = "https://medium.com/@rayheberer/"
@@ -47,5 +47,5 @@ paginate = 5
   name = "Projects"
   url = "projects"
   [[params.navlinks]]
-  name = "Archive"
-  url = "archive"
+  name = "Newsletter"
+  url = "newsletter"
